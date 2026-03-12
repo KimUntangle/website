@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Untangle — Kim Ngan Tran</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* ── Electric Navy × Gold × Silver palette ── */
+  --fog:         #F5F4F1;      /* fond principal — blanc chaud cassé */
+  --mist:        #ECEAE6;      /* fond alterné — gris chaud */
+  --sand:        #F2EFE8;      /* fond sable doux — remplace petal */
+  --navy:        #0A1628;      /* midnight ocean — profond, riche */
+  --navy-mid:    #122040;      /* navy moyen — hover */
+  --navy-deep:   #05101A;      /* quasi noir marin — footer */
+  --gold:        #B8892A;      /* or muted — accent chaud gender-neutral */
+  --gold-mid:    #D4A84B;      /* or moyen — hover */
+  --gold-pale:   #EDD898;      /* or pâle — backgrounds légers */
+  --gold-xpale:  #F8F2E0;      /* or quasi blanc */
+  --silver:      #A8B0BA;      /* argent — texture & élégance */
+  --silver-light:#C8D0D8;      /* argent clair */
+  --silver-xlight:#E8ECF0;     /* argent quasi blanc */
+  --ink:         #1C1C22;      /* texte — quasi noir chaud */
+  --grey:        #6E6B72;      /* texte secondaire — assez foncé pour lisibilité */
+  --font-serif:'Cormorant Garamond',Georgia,serif;
+  --font-sans: 'DM Sans',sans-serif;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--fog);color:var(--ink);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.6rem 5vw;
+  transition:background .5s,padding .4s,border-color .4s,box-shadow .4s;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled{
+  background:rgba(245,244,241,.97);
+  backdrop-filter:blur(20px);
+  padding:1.1rem 5vw;
+  border-color:var(--silver-light);
+  box-shadow:0 2px 24px rgba(26,43,107,.06);
+}
+.nav-logo{
+  font-family:var(--font-serif);font-size:1.45rem;font-weight:400;
+  letter-spacing:.05em;text-decoration:none;color:var(--navy);
+  display:flex;align-items:baseline;gap:0;
+}
+.nav-logo-dot{color:var(--gold);transition:transform .3s,color .3s;display:inline-block}
+.nav-logo:hover .nav-logo-dot{transform:rotate(180deg) scale(1.4);color:var(--navy)}
+.nav-links{display:flex;align-items:center;gap:2.8rem;list-style:none}
+.nav-links a{
+  font-size:.68rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
+  text-decoration:none;color:var(--grey);position:relative;transition:color .25s;
+  padding-bottom:2px;
+}
+/* Gold underline on hover */
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;height:1.5px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .32s;
+}
+.nav-links a:hover{color:var(--navy)}
+.nav-links a:hover::after{transform:scaleX(1)}
+/* Nav CTA — gold filled */
+.nav-cta{
+  background:var(--gold)!important;color:#fff!important;
+  padding:.45rem 1.2rem!important;
+  font-size:.68rem!important;font-weight:500!important;letter-spacing:.1em!important;
+  line-height:1!important;
+  display:inline-flex!important;align-items:center!important;
+  transition:background .25s,transform .2s!important;
+  border:1px solid var(--gold)!important;
+}
+.nav-cta:hover{background:var(--navy)!important;border-color:var(--navy)!important;transform:translateY(-1px)!important}
+.nav-cta::after{display:none!important}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--navy);transition:transform .3s,opacity .3s}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* ── MOBILE MENU — navy full screen with big playful type ── */
+.mobile-menu{
+  display:none;position:fixed;inset:0;
+  background:var(--navy);z-index:499;
+  flex-direction:column;align-items:center;justify-content:center;gap:2rem;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+  font-family:var(--font-serif);font-size:3.2rem;font-weight:300;
+  color:var(--fog);text-decoration:none;opacity:0;
+  animation:fadeUp .4s forwards;transition:color .2s;
+  position:relative;
+}
+.mobile-menu a::after{
+  content:attr(data-label);position:absolute;left:0;top:0;
+  color:var(--gold);clip-path:inset(0 100% 0 0);transition:clip-path .35s ease;
+}
+.mobile-menu a:hover::after{clip-path:inset(0 0% 0 0)}
+.mobile-menu a:nth-child(1){animation-delay:.06s}.mobile-menu a:nth-child(2){animation-delay:.12s}
+.mobile-menu a:nth-child(3){animation-delay:.18s}.mobile-menu a:nth-child(4){animation-delay:.24s}
+.mob-close-hint{position:absolute;bottom:2.5rem;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.2)}
+
+/* ── BUTTONS ── */
+.btn{display:inline-block;text-decoration:none;font-family:var(--font-sans);font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:.65rem 1.4rem;border:1px solid transparent;transition:all .25s;white-space:nowrap;align-self:flex-start}
+.btn-rose{background:var(--gold);color:#fff;border-color:var(--gold)}
+.btn-rose:hover{background:transparent;color:var(--gold);transform:translateY(-2px)}
+.btn-petrol{background:var(--navy);color:var(--fog);border-color:var(--navy)}
+.btn-petrol:hover{background:transparent;color:var(--navy)}
+.btn-outline{background:transparent;color:var(--navy);border-color:rgba(26,43,107,.28)}
+.btn-outline:hover{background:var(--navy);color:var(--fog)}
+.btn-ghost{display:inline-flex;align-items:center;gap:.45rem;text-decoration:none;font-family:var(--font-sans);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;font-weight:400;color:var(--grey);background:none;border:none;padding:0;cursor:pointer;transition:color .25s}
+.btn-ghost:hover{color:var(--gold)}
+.btn-ghost .arr{transition:transform .25s}
+.btn-ghost:hover .arr{transform:translateX(5px)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100svh;
+  display:grid;grid-template-columns:52% 48%;
+  background:var(--fog);
+  padding-top:78px;
+  position:relative;overflow:hidden;
+}
+
+/* Navy geometric accent — clean, no organic lines */
+.hero-silver-bg{
+  position:absolute;top:-10%;right:-5%;
+  width:55vw;height:80vh;
+  background:radial-gradient(ellipse at 70% 20%,
+    rgba(168,176,186,.18) 0%,
+    rgba(26,43,107,.04) 50%,
+    transparent 72%);
+  pointer-events:none;z-index:0;
+}
+/* Gold accent corner — geometric, intentional */
+.hero-orb{
+  position:absolute;bottom:0;right:0;
+  width:40vw;height:40vw;max-width:480px;
+  background:linear-gradient(135deg,rgba(184,137,42,.06) 0%,transparent 60%);
+  pointer-events:none;z-index:0;
+}
+
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:4rem 3rem 5rem 5vw;position:relative;z-index:2}
+.hero-eyebrow{display:flex;align-items:center;gap:.8rem;font-size:.65rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:2.5rem;opacity:0;animation:fadeUp .6s .25s forwards}
+.eyebrow-dash{width:20px;height:1px;background:var(--gold-pale);flex-shrink:0}
+
+.hero-title{
+  font-family:var(--font-serif);
+  font-size:clamp(3.4rem,6.5vw,6rem);
+  font-weight:300;line-height:1.0;
+  color:var(--navy);
+  margin-bottom:2.5rem;
+  letter-spacing:-.01em;
+  opacity:0;animation:fadeUp .8s .4s forwards;
+}
+.hero-title em{font-style:italic;color:var(--gold);display:block}
+/* Gold accent line under title */
+.hero-title-line{display:none}
+
+.hero-tagline{font-size:.92rem;font-weight:300;line-height:1.95;color:var(--grey);max-width:360px;margin-bottom:3rem;padding-left:1.2rem;border-left:2px solid var(--gold-pale);opacity:0;animation:fadeUp .75s .58s forwards}
+.hero-actions{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;opacity:0;animation:fadeUp .75s .72s forwards}
+
+.hero-right{position:relative;overflow:hidden;align-self:stretch}
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;opacity:0;animation:fadeIn 1.2s .3s forwards}
+
+/* Silver accent on photo edge */
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(26,43,107,.04) 0%,transparent 30%);pointer-events:none}
+
+.hero-scroll{position:absolute;bottom:2.5rem;left:5vw;display:flex;align-items:center;gap:1rem;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver);opacity:0;animation:fadeIn 1s 2s forwards;z-index:2}
+.scroll-line{display:none}
+
+/* ── TRUST — light background to separate from navy quote ── */
+.trust{
+  background:var(--mist);
+  padding:1.3rem 5vw;
+  display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap;
+  position:relative;overflow:hidden;
+}
+.trust::after{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:linear-gradient(105deg,transparent 30%,rgba(184,137,42,.04) 50%,transparent 70%);
+  pointer-events:none;
+}
+.trust-item{display:flex;align-items:center;gap:.75rem;font-size:.72rem;color:var(--grey);position:relative;z-index:1}
+.t-strong{font-weight:500;color:var(--navy)}
+.trust-sep{width:1px;height:18px;background:var(--silver-light)}
+.icf-ring{width:28px;height:28px;border:1px solid var(--gold-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.t-icon{width:13px;height:13px;color:var(--gold);flex-shrink:0}
+
+/* ── QUOTE ── */
+.quote{
+  background:var(--navy);
+  padding:5rem 5vw;text-align:center;
+  position:relative;overflow:hidden;
+}
+.quote-rings{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;width:600px;height:600px;opacity:.04}
+.quote-inner{max-width:660px;margin:0 auto;position:relative;z-index:1}
+.quote-mark{font-family:var(--font-serif);font-size:7rem;line-height:.4;color:var(--gold-pale);opacity:.25;display:block;margin-bottom:1rem}
+.quote-text{font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;font-style:italic;color:var(--fog);line-height:1.52;margin-bottom:1.6rem}
+.quote-text em{font-style:normal;color:var(--gold-mid);font-weight:400}
+.quote-cite{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.quote-silver{display:block;margin:2rem auto 0;color:var(--gold);opacity:.25}
+
+/* ── SHARED ── */
+.s-label{display:inline-flex;align-items:center;gap:.6rem;font-size:.65rem;letter-spacing:.24em;text-transform:uppercase;margin-bottom:1.4rem}
+.s-label::before{content:'';display:block;width:16px;height:1px;background:currentColor;flex-shrink:0}
+.l-rose{color:var(--gold)}.l-petrol{color:var(--navy)}.l-silver{color:var(--silver)}.l-light{color:rgba(255,255,255,.35)}
+.s-title{font-family:var(--font-serif);font-size:clamp(2.2rem,3.6vw,3.4rem);font-weight:300;line-height:1.1;color:var(--navy);letter-spacing:-.01em}
+.s-title em{font-style:italic;color:var(--gold)}
+.s-title-light{color:var(--fog)}.s-title-light em{color:var(--gold-mid)}
+.body-p{font-size:.92rem;font-weight:300;line-height:1.95;color:var(--grey)}
+
+/* ── WHO ── */
+.who{display:grid;grid-template-columns:48% 52%;background:var(--fog);position:relative}
+.who::before{content:'01';position:absolute;right:3vw;top:50%;transform:translateY(-50%);font-family:var(--font-serif);font-size:clamp(10rem,16vw,20rem);font-weight:300;line-height:1;color:var(--silver-xlight);opacity:.8;pointer-events:none;z-index:0}
+.who-img-col{overflow:hidden;min-height:680px;position:relative;z-index:1}
+.who-img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.who-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,43,107,.06) 0%,transparent 50%);pointer-events:none}
+.who-content{padding:9rem 5vw 9rem 5rem;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
+.who-intro{margin:1.8rem 0 2rem}
+.pain-list{display:grid;gap:.3rem;margin-bottom:2.8rem}
+.pain-item{display:flex;align-items:flex-start;gap:1rem;padding:.85rem 1rem;border-left:2px solid var(--silver-light);transition:border-color .3s,background .3s,transform .3s;cursor:pointer}
+.pain-item:hover{border-color:var(--gold);background:var(--gold-xpale);transform:translateX(4px)}
+.pain-dot{width:4px;height:4px;border-radius:50%;background:var(--gold-mid);margin-top:.72rem;flex-shrink:0}
+.pain-item span{font-size:.88rem;font-weight:300;line-height:1.65;color:var(--ink)}
+
+/* ── APPROACH ── */
+.approach{background:var(--mist);padding:10rem 5vw;position:relative;overflow:hidden}
+.approach::before{content:'02';position:absolute;left:-1vw;top:50%;transform:translateY(-50%);font-family:var(--font-serif);font-size:clamp(10rem,16vw,20rem);font-weight:300;line-height:1;color:var(--silver-xlight);opacity:.7;pointer-events:none;z-index:0}
+.approach-inner{max-width:1120px;margin:0 auto;position:relative;z-index:1}
+.approach-head{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:5rem}
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+
+/* Cards — gold top accent, silver border */
+.a-card{
+  background:var(--fog);
+  padding:2.8rem 2.2rem;
+  position:relative;overflow:hidden;
+  border:1px solid var(--silver-light);
+  transition:transform .35s,box-shadow .35s,border-color .35s;
+}
+.a-card::before{
+  content:'';position:absolute;top:0;left:2.2rem;right:2.2rem;height:1px;
+  background:var(--silver-light);
+  transition:background .3s;
+}
+.a-card:hover::before{background:var(--gold);}
+.a-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(10,22,40,.08);border-color:var(--silver-light)}
+.a-num{font-family:var(--font-serif);font-size:3rem;font-weight:300;line-height:1;margin-bottom:.5rem;color:var(--silver-light)}
+.picto{width:64px;height:64px;margin-bottom:1.4rem;display:block}
+.a-card h3{font-family:var(--font-serif);font-size:1.45rem;font-weight:400;color:var(--navy);margin-bottom:.65rem;line-height:1.2}
+.approach-note{max-width:1120px;margin:3.5rem auto 0;text-align:center;font-family:var(--font-serif);font-style:italic;color:var(--grey);font-size:1.05rem}
+
+
+
+/* ── ABOUT ── */
+.about{display:grid;grid-template-columns:1fr 1fr;background:var(--fog);position:relative}
+.about::before{content:'03';position:absolute;right:-1vw;bottom:0;font-family:var(--font-serif);font-size:clamp(10rem,16vw,20rem);font-weight:300;line-height:.85;color:var(--silver-xlight);opacity:.7;pointer-events:none;z-index:0}
+.about-content{padding:9rem 4rem 9rem 5vw;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
+.about-content .body-p{margin-top:1.4rem}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:2rem 0 2.5rem}
+.tag{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;padding:.38rem 1rem;border:1px solid var(--silver-light);color:var(--navy);background:transparent;transition:all .25s;cursor:pointer}
+.tag:hover{background:var(--navy);border-color:var(--navy);color:var(--fog)}
+.tag-r{border-color:var(--gold-pale);color:var(--gold)}
+.tag-r:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.about-img-col{overflow:hidden;position:relative;z-index:1}
+.about-img{width:100%;height:100%;min-height:640px;object-fit:cover;object-position:center top;display:block}
+.about-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(26,43,107,.05) 0%,transparent 40%);pointer-events:none}
+
+/* ── BELIEF ── */
+.belief{display:grid;grid-template-columns:1fr 1fr;background:var(--mist);position:relative}
+.belief::before{content:'04';position:absolute;left:-1vw;top:50%;transform:translateY(-50%);font-family:var(--font-serif);font-size:clamp(10rem,16vw,20rem);font-weight:300;line-height:1;color:var(--silver-xlight);opacity:.65;pointer-events:none;z-index:0}
+.belief-img-col{overflow:hidden;position:relative;z-index:1}
+.belief-img{width:100%;height:100%;min-height:600px;object-fit:cover;object-position:center top;display:block}
+.belief-content{padding:9rem 5vw 9rem 5rem;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
+.belief-content .body-p{margin-top:1.4rem}
+.silver-line{display:block;width:80px;height:1px;background:linear-gradient(to right,var(--gold-pale),var(--silver),transparent);margin:2rem 0 2.5rem}
+
+/* ── PROCESS ── */
+.process{background:var(--sand);padding:10rem 5vw;position:relative;overflow:hidden}
+.process-inner{max-width:1120px;margin:0 auto;position:relative;z-index:1}
+.process-head{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:6rem}
+.process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;position:relative}
+.process-steps::before{content:'';position:absolute;top:21px;left:calc(100%/6);right:calc(100%/6);height:1px;background:linear-gradient(to right,var(--gold-pale),var(--silver-light),var(--gold-pale));z-index:0}
+.process-step{position:relative;z-index:1}
+.step-num{width:42px;height:42px;border-radius:50%;background:var(--fog);border:1.5px solid var(--silver-light);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:1rem;font-weight:400;color:var(--navy);margin-bottom:2rem;transition:all .3s}
+.process-step:hover .step-num{background:var(--gold);border-color:var(--gold);color:#fff;transform:scale(1.1)}
+.process-step h3{font-family:var(--font-serif);font-size:1.45rem;font-weight:400;color:var(--navy);margin-bottom:.65rem}
+.process-cta{margin-top:5rem;text-align:center}
+
+/* ── TESTIMONIALS ── */
+.testi{background:var(--mist);padding:10rem 5vw;position:relative;overflow:hidden}
+.testi-sheen{position:absolute;top:-20%;left:-10%;width:70%;height:70%;background:radial-gradient(ellipse,rgba(184,137,42,.04) 0%,transparent 60%);pointer-events:none}
+.testi-inner{max-width:1120px;margin:0 auto;position:relative;z-index:1}
+.testi-head{margin-bottom:5rem}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.testi-card{padding:2.8rem;background:var(--fog);border:1px solid var(--silver-light);transition:background .3s,border-color .3s,transform .3s}
+.testi-card:hover{background:#fff;border-color:var(--gold-pale);transform:translateY(-4px)}
+.testi-q{font-family:var(--font-serif);font-size:3.5rem;line-height:.8;color:var(--gold-pale);opacity:.8;margin-bottom:.4rem}
+.testi-text{font-family:var(--font-serif);font-size:1.03rem;font-style:italic;font-weight:300;line-height:1.78;color:var(--grey);margin-bottom:1.8rem}
+.testi-bar{width:28px;height:1px;background:linear-gradient(to right,var(--gold),var(--silver-light));opacity:.6;margin-bottom:1rem}
+.testi-name{font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)}
+.testi-role{font-size:.7rem;font-weight:300;color:var(--grey);margin-top:.2rem}
+
+/* ── CONTACT — navy, not rose ── */
+.contact{
+  background:var(--navy);
+  padding:9rem 5vw 8rem;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.contact-bg-word{display:none}
+/* Warm gold glow top-right */
+.contact::after{
+  content:'';position:absolute;top:-20%;right:-10%;
+  width:50vw;height:50vw;
+  background:radial-gradient(circle,rgba(184,137,42,.08) 0%,transparent 65%);
+  pointer-events:none;
+}
+.contact-nature{display:none}
+.contact-inner{position:relative;z-index:1}
+.contact .s-label{color:rgba(255,255,255,.3);justify-content:center}
+.contact .s-label::before{background:rgba(255,255,255,.18)}
+.contact-title{
+  font-family:var(--font-serif);
+  font-size:clamp(2.8rem,6vw,5.5rem);
+  font-weight:300;line-height:1.05;
+  color:var(--fog);
+  margin-bottom:.8rem;
+  letter-spacing:-.01em;
+}
+.contact-title em{font-style:italic;color:var(--gold-mid)}
+.contact-sub{
+  font-size:.9rem;font-weight:300;line-height:1.9;
+  color:rgba(245,244,241,.4);
+  max-width:340px;margin:.8rem auto 3rem;
+}
+.contact-form{display:flex;max-width:360px;margin:0 auto}
+.contact-form input{
+  flex:1;padding:.9rem 1.1rem;
+  border:1px solid rgba(255,255,255,.1);border-right:none;
+  background:rgba(255,255,255,.04);
+  font-family:var(--font-sans);font-size:.85rem;font-weight:300;
+  color:#fff;outline:none;transition:border-color .25s;
+}
+.contact-form input:focus{border-color:rgba(184,137,42,.5)}
+.contact-form input::placeholder{color:rgba(255,255,255,.2)}
+.contact-form button{
+  padding:.9rem 1.3rem;background:var(--gold);color:#fff;
+  font-family:var(--font-sans);font-size:.65rem;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;
+  border:none;cursor:pointer;transition:background .2s;white-space:nowrap;
+}
+.contact-form button:hover{background:var(--gold-mid)}
+
+/* ── FOOTER ── */
+footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.06)}
+.footer-logo{font-family:var(--font-serif);font-size:1.25rem;color:var(--fog);text-decoration:none;letter-spacing:.05em}
+.footer-logo-dot{color:var(--gold)}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.2);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold-mid)}
+.footer-copy{font-size:.66rem;color:rgba(255,255,255,.15)}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideLine{0%{left:-100%}100%{left:100%}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .75s ease,transform .75s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-l{opacity:0;transform:translateX(-20px);transition:opacity .75s ease,transform .75s ease}
+.reveal-l.visible{opacity:1;transform:translateX(0)}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  /* Grids → single column */
+  .hero,.who,.about,.belief{grid-template-columns:1fr}
+
+  /* Hero */
+  .hero{padding-top:70px}
+  .hero-left{padding:3rem 1.5rem 2.5rem}
+  .hero-right{min-height:75vw}
+  .hero-actions{flex-direction:column;align-items:flex-start;gap:1.2rem}
+
+  /* Images — photo first on mobile */
+  .who-img-col,.about-img-col,.belief-img-col{min-height:55vw;order:-1}
+  .who-content,.about-content,.belief-content{padding:3.5rem 1.5rem}
+
+  /* Sections padding */
+  .approach,.process,.testi,.contact{padding:4rem 1.5rem}
+  .quote{padding:3.5rem 1.5rem}
+
+  /* Approach & process heads */
+  .approach-head,.process-head{grid-template-columns:1fr;gap:1.5rem;margin-bottom:3rem}
+  .approach-grid{grid-template-columns:1fr;gap:1.2rem}
+  .testi-grid{grid-template-columns:1fr;gap:1.2rem}
+  .process-steps{grid-template-columns:1fr;gap:2rem}
+  .process-steps::before{display:none}
+
+  /* Nav */
+  nav{padding:1.1rem 1.5rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+
+  /* Trust */
+  .trust{gap:1rem;padding:1rem 1.5rem;flex-direction:column;align-items:flex-start}
+  .trust-sep{display:none}
+  .trust-item{font-size:.7rem}
+
+  /* Background counters — too large on mobile */
+  .who::before,.approach::before,.about::before,.belief::before,.process::before{display:none}
+
+  /* Testimonial cards */
+  .testi-card{padding:2rem}
+
+  /* Contact form */
+  .contact-form{max-width:100%}
+
+  /* Footer */
+  footer{flex-direction:column;gap:1rem;text-align:center;padding:1.8rem 1.5rem}
+  .footer-links{flex-wrap:wrap;justify-content:center;gap:1.2rem}
+
+  /* Typography scale down */
+  .s-title{font-size:clamp(1.9rem,6vw,2.8rem)}
+  .contact-title{font-size:clamp(2rem,7vw,3.5rem)}
+  .quote-text{font-size:clamp(1.5rem,5vw,2rem)}
+}
+
+@media(max-width:480px){
+  .hero-left{padding:2.5rem 1.2rem 2rem}
+  .who-content,.about-content,.belief-content{padding:2.5rem 1.2rem}
+  .approach,.process,.testi,.contact{padding:3rem 1.2rem}
+  .approach-grid{gap:1rem}
+  .a-card{padding:2rem 1.5rem}
+  .testi-card{padding:1.6rem}
+  .mobile-menu a{font-size:2.4rem}
+  .trust{padding:.9rem 1.2rem}
+  footer{padding:1.5rem 1.2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#">untangle<span class="nav-logo-dot">.</span></a>
+  <ul class="nav-links">
+    <li><a href="#who">About</a></li>
+    <li><a href="#approach">My approach</a></li>
+    <li><a href="#process">Work with me</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mob">
+  <a href="#who" onclick="closeMob()" data-label="About">About</a>
+  <a href="#approach" onclick="closeMob()" data-label="My approach">My approach</a>
+  <a href="#process" onclick="closeMob()" data-label="Work with me">Work with me</a>
+  <a href="#contact" onclick="closeMob()" data-label="Contact">Contact</a>
+  <span class="mob-close-hint">press esc or tap outside to close</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-silver-bg"></div>
+  <div class="hero-orb"></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span class="eyebrow-dash"></span>Coaching · Brussels</div>
+    <h1 class="hero-title">
+      Your space<br/>
+      to <em>move forward.</em>
+    </h1>
+    <span class="hero-title-line"></span>
+    <p class="hero-tagline">I help you find clarity, reconnect with what matters, and take the next step — at your own pace, on your own terms.</p>
+    <div class="hero-actions">
+      <a href="https://calendly.com/kim-untangle/30min" class="btn btn-petrol">Book a free discovery call</a>
+      <a href="#who" class="btn-ghost">Learn more <span class="arr">→</span></a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-img" src="./images/hero.jpg" alt="Kim Ngan Tran"/>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="trust-item">
+    <div class="icf-ring">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="8" cy="8" r="6.5" stroke="#B8BEC4" stroke-width="1"/>
+        <text x="8" y="11" text-anchor="middle" font-family="Georgia,serif" font-size="4" fill="#B8BEC4">ICF</text>
+      </svg>
+    </div>
+    <span><span class="t-strong">ICF Member</span> · International Coaching Federation</span>
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item">
+    <svg class="t-icon" viewBox="0 0 14 14" fill="none"><path d="M7 1.2L8.4 5.1l4.1.1-3.2 2.4 1.2 4L7 9.1 3.5 11.5l1.2-4L1.5 5.2l4.1-.1z" stroke="currentColor" stroke-width="1" fill="none"/></svg>
+    <span><span class="t-strong">Nova Terra</span> · Certified Coach</span>
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item">
+    <svg class="t-icon" viewBox="0 0 14 14" fill="none"><path d="M2 11C5 5 9 3 12 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M10 2.5L12 5 9 6.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span><span class="t-strong">15+ years</span> · in business</span>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<section class="quote">
+  <!-- nature rings watermark -->
+  <svg class="quote-rings" viewBox="0 0 600 600" fill="none">
+    <circle cx="300" cy="300" r="280" stroke="white" stroke-width="1"/>
+    <circle cx="300" cy="300" r="220" stroke="white" stroke-width=".8"/>
+    <circle cx="300" cy="300" r="160" stroke="white" stroke-width=".6"/>
+    <circle cx="300" cy="300" r="100" stroke="white" stroke-width=".4"/>
+    <circle cx="300" cy="300" r="50" stroke="white" stroke-width=".3"/>
+  </svg>
+  <div class="quote-inner reveal">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">You cannot stop the waves,<br/>but you can learn <em>how to surf.</em></p>
+    <cite class="quote-cite">— Jon Kabat-Zinn</cite>
+    <!-- silver lining wave -->
+    <svg class="quote-silver" width="140" height="30" viewBox="0 0 140 30" fill="none">
+      <path d="M4 18C18 6 28 26 44 16C60 6 70 22 88 14C104 6 116 18 136 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <path d="M4 24C20 14 32 30 48 20C64 10 76 26 94 18C110 10 120 22 136 18" stroke="currentColor" stroke-width="1" stroke-linecap="round" fill="none" opacity=".4"/>
+    </svg>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="who" id="who">
+  <div class="who-img-col reveal-l">
+    <img class="who-img" src="./images/who.jpg" alt="Kim Ngan Tran"/>
+    <div class="who-img-overlay"></div>
+  </div>
+  <div class="who-content">
+    <span class="s-label l-rose reveal">Who I work with</span>
+    <h2 class="s-title reveal">Something feels tangled.<br/>You're ready <em>to move.</em></h2>
+    <p class="body-p who-intro reveal">You've achieved real things. Yet somewhere, momentum stalled. Maybe the path isn't clear. Maybe you're carrying too much. Maybe you simply know something needs to change — you just can't name it yet.</p>
+    <div class="pain-list reveal">
+      <div class="pain-item"><div class="pain-dot"></div><span>Entrepreneurs &amp; leaders at a crossroads</span></div>
+      <div class="pain-item"><div class="pain-dot"></div><span>Professionals seeking deeper meaning in their work</span></div>
+      <div class="pain-item"><div class="pain-dot"></div><span>People navigating a major life transition</span></div>
+      <div class="pain-item"><div class="pain-dot"></div><span>Anyone who feels stuck and ready to move forward</span></div>
+    </div>
+    <a href="https://calendly.com/kim-untangle/30min" class="btn btn-petrol reveal">Let's connect</a>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="approach-inner">
+    <div class="approach-head">
+      <div>
+        <span class="s-label l-rose reveal">My approach</span>
+        <h2 class="s-title reveal">Grounded strategy.<br/><em>Real movement.</em></h2>
+      </div>
+      <p class="body-p reveal">Coaching is not advice. It's a space where you can think freely, feel held, and move forward. I bring 15+ years of business experience together with mindfulness and a deep passion for movement.</p>
+    </div>
+    <div class="approach-grid">
+
+      <!-- Card 1 -->
+      <div class="a-card reveal">
+        <div class="a-num">01</div>
+        <svg class="picto" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="28" fill="rgba(176,112,128,.07)"/>
+          <path d="M16 40C22 26 28 22 32 28C36 34 32 18 38 14C44 10 50 20 46 28" stroke="#B07080" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M20 48C30 34 42 44 52 34" stroke="#B07080" stroke-width="1.3" stroke-linecap="round" fill="none" opacity=".4"/>
+          <circle cx="46" cy="28" r="4" stroke="#B07080" stroke-width="1.5" fill="none"/>
+          <circle cx="46" cy="28" r="1.5" fill="#B07080"/>
+          <!-- silver sparkle -->
+          <line x1="52" y1="22" x2="56" y2="18" stroke="#B8BEC4" stroke-width="1" stroke-linecap="round" opacity=".6"/>
+          <line x1="54" y1="28" x2="58" y2="27" stroke="#B8BEC4" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+          <line x1="50" y1="20" x2="53" y2="16" stroke="#B8BEC4" stroke-width=".8" stroke-linecap="round" opacity=".35"/>
+        </svg>
+        <h3>Unblock &amp; Clarify</h3>
+        <p class="body-p">We start by naming what's in the way. Together we untangle the noise — fears, beliefs, competing priorities — to find the signal underneath.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="a-card reveal d1">
+        <div class="a-num">02</div>
+        <svg class="picto" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="28" fill="rgba(176,112,128,.07)"/>
+          <!-- compass with silver accents -->
+          <circle cx="32" cy="32" r="18" stroke="#B07080" stroke-width="1" fill="none" opacity=".22"/>
+          <circle cx="32" cy="32" r="11" stroke="#B8BEC4" stroke-width=".8" fill="none" opacity=".3"/>
+          <path d="M32 14L35.5 28L32 32L28.5 28Z" fill="#B07080" opacity=".85"/>
+          <path d="M32 50L28.5 36L32 32L35.5 36Z" fill="#B07080" opacity=".15"/>
+          <path d="M50 32L36 35.5L32 32L36 28.5Z" fill="#B8BEC4" opacity=".4"/>
+          <path d="M14 32L28 28.5L32 32L28 35.5Z" fill="#B8BEC4" opacity=".2"/>
+          <circle cx="32" cy="32" r="2.5" fill="#B07080"/>
+          <line x1="32" y1="8" x2="32" y2="11" stroke="#B8BEC4" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
+        </svg>
+        <h3>Define Your Direction</h3>
+        <p class="body-p">Clarity on where you want to go. Not someone else's definition of success — yours. Anchored in your values, your strengths, your vision.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="a-card reveal d2">
+        <div class="a-num">03</div>
+        <svg class="picto" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="28" fill="rgba(176,112,128,.07)"/>
+          <!-- figure in motion, silver trail -->
+          <circle cx="32" cy="17" r="5" stroke="#B07080" stroke-width="1.8" fill="none"/>
+          <path d="M32 22C30 30 24 34 20 40" stroke="#B07080" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          <path d="M32 28C36 25 42 27 46 24" stroke="#B07080" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path d="M32 28C28 25 23 23 20 20" stroke="#B07080" stroke-width="1.4" stroke-linecap="round" fill="none" opacity=".4"/>
+          <path d="M20 40C18 47 22 51 26 53" stroke="#B07080" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path d="M20 40C24 46 28 50 32 52" stroke="#B07080" stroke-width="1.3" stroke-linecap="round" fill="none" opacity=".35"/>
+          <!-- silver motion trail -->
+          <path d="M38 44C44 40 50 42 52 48" stroke="#B8BEC4" stroke-width="1.2" stroke-linecap="round" fill="none" opacity=".5"/>
+          <path d="M42 50C46 46 50 48 52 52" stroke="#B8BEC4" stroke-width=".8" stroke-linecap="round" fill="none" opacity=".3"/>
+          <circle cx="52" cy="48" r="2" fill="#B8BEC4" opacity=".4"/>
+        </svg>
+        <h3>Get in Motion</h3>
+        <p class="body-p">Action that feels aligned, not forced. A path forward that integrates who you are — professionally, personally, fully.</p>
+      </div>
+    </div>
+    <!-- silver lining wave -->
+    <svg style="display:block;margin:4rem auto 0;color:var(--silver);opacity:.35;width:180px;height:32px" viewBox="0 0 180 32" fill="none">
+      <path d="M4 20C20 8 34 28 52 18C70 8 82 24 102 16C122 8 138 22 176 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    </svg>
+    <p class="approach-note reveal">All through a mindful, grounded approach that keeps you — the person — at the centre.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-content">
+    <span class="s-label l-petrol reveal">About Kim</span>
+    <h2 class="s-title reveal">Business experience.<br/><em>Human presence.</em></h2>
+    <p class="body-p reveal">I've spent 15+ years building teams, leading operations, and navigating change in companies large and small. I know what it feels like to be the one holding everything together — and what it takes to let go of what no longer serves.</p>
+    <p class="body-p reveal d1">My passion for yoga, mindfulness, and movement isn't separate from my professional life. It's what makes me the coach I am: grounded, present, and genuinely committed to your growth.</p>
+    <div class="tags reveal d2">
+      <span class="tag">15+ years in business</span>
+      <span class="tag tag-r">Yoga &amp; movement</span>
+      <span class="tag">Startups &amp; corporates</span>
+      <span class="tag tag-r">Mindfulness</span>
+      <span class="tag">ICF Member</span>
+    </div>
+    <a href="https://calendly.com/kim-untangle/30min" class="btn btn-petrol reveal d3">Let's connect</a>
+  </div>
+  <div class="about-img-col reveal">
+    <img class="about-img" src="./images/about.jpg" alt="Kim — business experience, human presence"/>
+    <div class="about-img-overlay"></div>
+  </div>
+</section>
+
+<!-- BELIEF -->
+<section class="belief" id="belief">
+  <div class="belief-img-col reveal-l"><img class="belief-img" src="./images/belief.jpg" alt="Kim — what I believe in"/></div>
+  <div class="belief-content">
+    <span class="s-label l-rose reveal">What I believe in</span>
+    <h2 class="s-title reveal">Every person holds<br/>their <em>own answers.</em></h2>
+    <p class="body-p reveal">My role isn't to tell you what to do. It's to create the conditions where you can think clearly, feel safe, and trust yourself again.</p>
+    <p class="body-p reveal d1">Movement taught me that real change comes from within. That stillness is the precondition for true momentum. This is the thread running through everything I do — in yoga, in business, in coaching.</p>
+    <div class="silver-line reveal d2"></div>
+    <a href="https://calendly.com/kim-untangle/30min" class="btn btn-rose reveal d2">Let's work together</a>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="process-inner">
+    <div class="process-head">
+      <div>
+        <span class="s-label l-rose reveal">How we work together</span>
+        <h2 class="s-title reveal">A journey built<br/><em>around you.</em></h2>
+      </div>
+      <p class="body-p reveal">No template. No one-size-fits-all. Every engagement starts from where you actually are — and moves at a pace that serves your growth.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">1</div>
+        <h3>Discovery Call</h3>
+        <p class="body-p">A free 30-minute conversation. No agenda — just space to explore what's bringing you here and whether we're the right fit.</p>
+      </div>
+      <div class="process-step reveal d1">
+        <div class="step-num">2</div>
+        <h3>Untangle Sessions</h3>
+        <p class="body-p">A coaching journey shaped around your situation, your goals, your rhythm. At the depth and pace that serves you best.</p>
+      </div>
+      <div class="process-step reveal d2">
+        <div class="step-num">3</div>
+        <h3>Your Way Forward</h3>
+        <p class="body-p">Clarity. Direction. Momentum. A renewed confidence in who you are and where you're going — with the tools to keep moving.</p>
+      </div>
+    </div>
+    <div class="process-cta reveal">
+      <a href="https://calendly.com/kim-untangle/30min" class="btn btn-rose">Book your free discovery call</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi" id="testimonials">
+  <div class="testi-sheen"></div>
+  <div class="testi-inner">
+    <div class="testi-head reveal">
+      <span class="s-label l-rose">Client words</span>
+      <h2 class="s-title reveal">What people say<br/>about working <em>with me.</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-q">"</div>
+        <p class="testi-text">I can not think of anyone more empathetic and impactful. She leads by example and by influence — a perfect match for helping you scale and find your way forward.</p>
+        <div class="testi-bar"></div>
+        <div class="testi-name">Nicolas M.</div><div class="testi-role">Product Manager</div>
+      </div>
+      <div class="testi-card reveal d1">
+        <div class="testi-q">"</div>
+        <p class="testi-text">Kim is a formidable presence with an enviable ability to build real connection — combined with a truly strategic mindset and a focus on what matters.</p>
+        <div class="testi-bar"></div>
+        <div class="testi-name">Chris C.</div><div class="testi-role">Chief Revenue Officer</div>
+      </div>
+      <div class="testi-card reveal d2">
+        <div class="testi-q">"</div>
+        <p class="testi-text">Kim has that natural warmth that makes you feel heard and cared for. She brings deep experience and a problem-solver's instinct — driven by what's truly right for you.</p>
+        <div class="testi-bar"></div>
+        <div class="testi-name">Nathalie L.</div><div class="testi-role">Chief People Officer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <!-- botanical watermark -->
+  <svg class="contact-nature" viewBox="0 0 380 380" fill="none">
+    <circle cx="190" cy="190" r="170" stroke="currentColor" stroke-width="1"/>
+    <circle cx="190" cy="190" r="130" stroke="currentColor" stroke-width=".7"/>
+    <circle cx="190" cy="190" r="90" stroke="currentColor" stroke-width=".5"/>
+    <path d="M190 20 Q230 80 190 140 Q150 80 190 20Z" stroke="currentColor" stroke-width="1" fill="none"/>
+    <path d="M360 190 Q300 230 240 190 Q300 150 360 190Z" stroke="currentColor" stroke-width="1" fill="none"/>
+    <path d="M190 360 Q150 300 190 240 Q230 300 190 360Z" stroke="currentColor" stroke-width=".8" fill="none"/>
+    <path d="M20 190 Q80 150 140 190 Q80 230 20 190Z" stroke="currentColor" stroke-width=".8" fill="none"/>
+  </svg>
+  <div class="contact-bg-word">untangle</div>
+  <div class="contact-inner">
+    <span class="s-label l-light reveal" style="justify-content:center">Stay in touch</span>
+    <h2 class="contact-title reveal">Ready to <em>untangle?</em></h2>
+    <p class="contact-sub reveal">Receive occasional reflections on clarity, leadership, and the art of moving forward — thoughtfully, not often.</p>
+    <div class="contact-form reveal">
+      <input type="email" placeholder="Your email address"/>
+      <button>Subscribe</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a class="footer-logo" href="#">untangle<span class="footer-logo-dot">.</span></a>
+  <div class="footer-links">
+    <a href="#who">About</a>
+    <a href="#process">Work with me</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Legal</a>
+  </div>
+  <span class="footer-copy">© 2025 Untangle · Kim Ngan Tran</span>
+</footer>
+
+<script>
+// Nav scroll
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60),{passive:true});
+
+// Mobile menu
+const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});
+function closeMob(){ham.classList.remove('open');mob.classList.remove('open')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMob()});
+
+// Reveal on scroll
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.reveal-l').forEach(el=>obs.observe(el));
+
+// Custom cursor removed
+
+</script>
+</body>
+</html>
