@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Untangle — Kim Ngan Tran</title>
+<title>Untangle · Kim Ngan Tran</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
@@ -11,21 +11,21 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   /* ── Electric Navy × Gold × Silver palette ── */
-  --fog:         #F5F4F1;      /* fond principal — blanc chaud cassé */
-  --mist:        #ECEAE6;      /* fond alterné — gris chaud */
-  --sand:        #F2EFE8;      /* fond sable doux — remplace petal */
-  --navy:        #0A1628;      /* midnight ocean — profond, riche */
-  --navy-mid:    #122040;      /* navy moyen — hover */
-  --navy-deep:   #05101A;      /* quasi noir marin — footer */
-  --gold:        #B8892A;      /* or muted — accent chaud gender-neutral */
-  --gold-mid:    #D4A84B;      /* or moyen — hover */
-  --gold-pale:   #EDD898;      /* or pâle — backgrounds légers */
+  --fog:         #F5F4F1;      /* fond principal, blanc chaud cassé */
+  --mist:        #ECEAE6;      /* fond alterné, gris chaud */
+  --sand:        #F2EFE8;      /* fond sable doux, remplace petal */
+  --navy:        #0A1628;      /* midnight ocean, profond, riche */
+  --navy-mid:    #122040;      /* navy moyen, hover */
+  --navy-deep:   #05101A;      /* quasi noir marin, footer */
+  --gold:        #B8892A;      /* or muted, accent chaud gender-neutral */
+  --gold-mid:    #D4A84B;      /* or moyen, hover */
+  --gold-pale:   #EDD898;      /* or pâle, backgrounds légers */
   --gold-xpale:  #F8F2E0;      /* or quasi blanc */
-  --silver:      #A8B0BA;      /* argent — texture & élégance */
+  --silver:      #A8B0BA;      /* argent, texture & élégance */
   --silver-light:#C8D0D8;      /* argent clair */
   --silver-xlight:#E8ECF0;     /* argent quasi blanc */
-  --ink:         #1C1C22;      /* texte — quasi noir chaud */
-  --grey:        #6E6B72;      /* texte secondaire — assez foncé pour lisibilité */
+  --ink:         #1C1C22;      /* texte, quasi noir chaud */
+  --grey:        #6E6B72;      /* texte secondaire, assez foncé pour lisibilité */
   --font-serif:'Cormorant Garamond',Georgia,serif;
   --font-sans: 'DM Sans',sans-serif;
 }
@@ -68,7 +68,7 @@ nav.scrolled{
 }
 .nav-links a:hover{color:var(--navy)}
 .nav-links a:hover::after{transform:scaleX(1)}
-/* Nav CTA — gold filled */
+/* Nav CTA, gold filled */
 .nav-cta{
   background:var(--gold)!important;color:#fff!important;
   padding:.45rem 1.2rem!important;
@@ -86,7 +86,7 @@ nav.scrolled{
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
-/* ── MOBILE MENU — navy full screen with big playful type ── */
+/* ── MOBILE MENU, navy full screen with big playful type ── */
 .mobile-menu{
   display:none;position:fixed;inset:0;
   background:var(--navy);z-index:499;
@@ -130,7 +130,7 @@ nav.scrolled{
   position:relative;overflow:hidden;
 }
 
-/* Navy geometric accent — clean, no organic lines */
+/* Navy geometric accent, clean, no organic lines */
 .hero-silver-bg{
   position:absolute;top:-10%;right:-5%;
   width:55vw;height:80vh;
@@ -140,7 +140,7 @@ nav.scrolled{
     transparent 72%);
   pointer-events:none;z-index:0;
 }
-/* Gold accent corner — geometric, intentional */
+/* Gold accent corner, geometric, intentional */
 .hero-orb{
   position:absolute;bottom:0;right:0;
   width:40vw;height:40vw;max-width:480px;
@@ -177,7 +177,7 @@ nav.scrolled{
 .hero-scroll{position:absolute;bottom:2.5rem;left:5vw;display:flex;align-items:center;gap:1rem;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver);opacity:0;animation:fadeIn 1s 2s forwards;z-index:2}
 .scroll-line{display:none}
 
-/* ── TRUST — light background to separate from navy quote ── */
+/* ── TRUST, light background to separate from navy quote ── */
 .trust{
   background:var(--mist);
   padding:1.3rem 5vw;
@@ -239,7 +239,7 @@ nav.scrolled{
 .approach-head{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:5rem}
 .approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
 
-/* Cards — gold top accent, silver border */
+/* Cards, gold top accent, silver border */
 .a-card{
   background:var(--fog);
   padding:2.8rem 2.2rem;
@@ -310,7 +310,7 @@ nav.scrolled{
 .testi-name{font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)}
 .testi-role{font-size:.7rem;font-weight:300;color:var(--grey);margin-top:.2rem}
 
-/* ── CONTACT — navy, not rose ── */
+/* ── CONTACT, navy, not rose ── */
 .contact{
   background:var(--navy);
   padding:9rem 5vw 8rem;
@@ -343,18 +343,23 @@ nav.scrolled{
   color:rgba(245,244,241,.4);
   max-width:340px;margin:.8rem auto 3rem;
 }
-.contact-form{display:flex;max-width:360px;margin:0 auto}
-.contact-form input{
-  flex:1;padding:.9rem 1.1rem;
-  border:1px solid rgba(255,255,255,.1);border-right:none;
+.contact-form{display:flex;flex-direction:column;gap:.8rem;max-width:460px;margin:0 auto;text-align:left}
+.contact-form input,
+.contact-form textarea{
+  width:100%;padding:.9rem 1.1rem;
+  border:1px solid rgba(255,255,255,.1);
   background:rgba(255,255,255,.04);
   font-family:var(--font-sans);font-size:.85rem;font-weight:300;
   color:#fff;outline:none;transition:border-color .25s;
 }
-.contact-form input:focus{border-color:rgba(184,137,42,.5)}
-.contact-form input::placeholder{color:rgba(255,255,255,.2)}
+.contact-form input:focus,
+.contact-form textarea:focus{border-color:rgba(184,137,42,.5)}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{color:rgba(255,255,255,.2)}
+.contact-form textarea{resize:vertical;min-height:120px}
 .contact-form button{
-  padding:.9rem 1.3rem;background:var(--gold);color:#fff;
+  align-self:flex-start;
+  padding:.9rem 2rem;background:var(--gold);color:#fff;
   font-family:var(--font-sans);font-size:.65rem;font-weight:500;
   letter-spacing:.14em;text-transform:uppercase;
   border:none;cursor:pointer;transition:background .2s;white-space:nowrap;
@@ -391,7 +396,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   .hero-right{min-height:75vw}
   .hero-actions{flex-direction:column;align-items:flex-start;gap:1.2rem}
 
-  /* Images — photo first on mobile */
+  /* Images, photo first on mobile */
   .who-img-col,.about-img-col,.belief-img-col{min-height:55vw;order:-1}
   .who-content,.about-content,.belief-content{padding:3.5rem 1.5rem}
 
@@ -416,7 +421,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   .trust-sep{display:none}
   .trust-item{font-size:.7rem}
 
-  /* Background counters — too large on mobile */
+  /* Background counters, too large on mobile */
   .who::before,.approach::before,.about::before,.belief::before,.process::before{display:none}
 
   /* Testimonial cards */
@@ -480,7 +485,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
       to <em>move forward.</em>
     </h1>
     <span class="hero-title-line"></span>
-    <p class="hero-tagline">I help you find clarity, reconnect with what matters, and take the next step — at your own pace, on your own terms.</p>
+    <p class="hero-tagline">I help you find clarity, reconnect with what matters, and take the next step, at your own pace, on your own terms.</p>
     <div class="hero-actions">
       <a href="https://calendly.com/kim-untangle/30min" class="btn btn-petrol">Book a free discovery call</a>
       <a href="#who" class="btn-ghost">Learn more <span class="arr">→</span></a>
@@ -528,7 +533,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   <div class="quote-inner reveal">
     <span class="quote-mark">"</span>
     <p class="quote-text">You cannot stop the waves,<br/>but you can learn <em>how to surf.</em></p>
-    <cite class="quote-cite">— Jon Kabat-Zinn</cite>
+    <cite class="quote-cite">Jon Kabat-Zinn</cite>
     <!-- silver lining wave -->
     <svg class="quote-silver" width="140" height="30" viewBox="0 0 140 30" fill="none">
       <path d="M4 18C18 6 28 26 44 16C60 6 70 22 88 14C104 6 116 18 136 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
@@ -546,7 +551,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   <div class="who-content">
     <span class="s-label l-rose reveal">Who I work with</span>
     <h2 class="s-title reveal">Something feels tangled.<br/>You're ready <em>to move.</em></h2>
-    <p class="body-p who-intro reveal">You've achieved real things. Yet somewhere, momentum stalled. Maybe the path isn't clear. Maybe you're carrying too much. Maybe you simply know something needs to change — you just can't name it yet.</p>
+    <p class="body-p who-intro reveal">You've achieved real things. Yet somewhere, momentum stalled. Maybe the path isn't clear. Maybe you're carrying too much. Maybe you simply know something needs to change, you just can't name it yet.</p>
     <div class="pain-list reveal">
       <div class="pain-item"><div class="pain-dot"></div><span>Entrepreneurs &amp; leaders at a crossroads</span></div>
       <div class="pain-item"><div class="pain-dot"></div><span>Professionals seeking deeper meaning in their work</span></div>
@@ -554,6 +559,28 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
       <div class="pain-item"><div class="pain-dot"></div><span>Anyone who feels stuck and ready to move forward</span></div>
     </div>
     <a href="https://calendly.com/kim-untangle/30min" class="btn btn-petrol reveal">Let's connect</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-content">
+    <span class="s-label l-petrol reveal">About Kim</span>
+    <h2 class="s-title reveal">Business experience.<br/><em>Human presence.</em></h2>
+    <p class="body-p reveal">I've spent 15+ years building teams, leading operations, and navigating change in companies large and small. I know what it feels like to be the one holding everything together, and what it takes to let go of what no longer serves.</p>
+    <p class="body-p reveal d1">My passion for yoga, mindfulness, and movement isn't separate from my professional life. It's what makes me the coach I am: grounded, present, and genuinely committed to your growth.</p>
+    <div class="tags reveal d2">
+      <span class="tag">15+ years in business</span>
+      <span class="tag tag-r">Yoga &amp; movement</span>
+      <span class="tag">Startups &amp; corporates</span>
+      <span class="tag tag-r">Mindfulness</span>
+      <span class="tag">ICF Member</span>
+    </div>
+    <a href="https://calendly.com/kim-untangle/30min" class="btn btn-petrol reveal d3">Let's connect</a>
+  </div>
+  <div class="about-img-col reveal">
+    <img class="about-img" src="./images/about.jpg" alt="Kim, business experience, human presence"/>
+    <div class="about-img-overlay"></div>
   </div>
 </section>
 
@@ -584,7 +611,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
           <line x1="50" y1="20" x2="53" y2="16" stroke="#B8BEC4" stroke-width=".8" stroke-linecap="round" opacity=".35"/>
         </svg>
         <h3>Unblock &amp; Clarify</h3>
-        <p class="body-p">We start by naming what's in the way. Together we untangle the noise — fears, beliefs, competing priorities — to find the signal underneath.</p>
+        <p class="body-p">We start by naming what's in the way. Together we untangle the noise: fears, beliefs, competing priorities, to find the signal underneath.</p>
       </div>
 
       <!-- Card 2 -->
@@ -603,7 +630,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
           <line x1="32" y1="8" x2="32" y2="11" stroke="#B8BEC4" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
         </svg>
         <h3>Define Your Direction</h3>
-        <p class="body-p">Clarity on where you want to go. Not someone else's definition of success — yours. Anchored in your values, your strengths, your vision.</p>
+        <p class="body-p">Clarity on where you want to go. Not someone else's definition of success, yours. Anchored in your values, your strengths, your vision.</p>
       </div>
 
       <!-- Card 3 -->
@@ -624,49 +651,14 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
           <circle cx="52" cy="48" r="2" fill="#B8BEC4" opacity=".4"/>
         </svg>
         <h3>Get in Motion</h3>
-        <p class="body-p">Action that feels aligned, not forced. A path forward that integrates who you are — professionally, personally, fully.</p>
+        <p class="body-p">Action that feels aligned, not forced. A path forward that integrates who you are, professionally, personally, fully.</p>
       </div>
     </div>
     <!-- silver lining wave -->
     <svg style="display:block;margin:4rem auto 0;color:var(--silver);opacity:.35;width:180px;height:32px" viewBox="0 0 180 32" fill="none">
       <path d="M4 20C20 8 34 28 52 18C70 8 82 24 102 16C122 8 138 22 176 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
     </svg>
-    <p class="approach-note reveal">All through a mindful, grounded approach that keeps you — the person — at the centre.</p>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-content">
-    <span class="s-label l-petrol reveal">About Kim</span>
-    <h2 class="s-title reveal">Business experience.<br/><em>Human presence.</em></h2>
-    <p class="body-p reveal">I've spent 15+ years building teams, leading operations, and navigating change in companies large and small. I know what it feels like to be the one holding everything together — and what it takes to let go of what no longer serves.</p>
-    <p class="body-p reveal d1">My passion for yoga, mindfulness, and movement isn't separate from my professional life. It's what makes me the coach I am: grounded, present, and genuinely committed to your growth.</p>
-    <div class="tags reveal d2">
-      <span class="tag">15+ years in business</span>
-      <span class="tag tag-r">Yoga &amp; movement</span>
-      <span class="tag">Startups &amp; corporates</span>
-      <span class="tag tag-r">Mindfulness</span>
-      <span class="tag">ICF Member</span>
-    </div>
-    <a href="https://calendly.com/kim-untangle/30min" class="btn btn-petrol reveal d3">Let's connect</a>
-  </div>
-  <div class="about-img-col reveal">
-    <img class="about-img" src="./images/about.jpg" alt="Kim — business experience, human presence"/>
-    <div class="about-img-overlay"></div>
-  </div>
-</section>
-
-<!-- BELIEF -->
-<section class="belief" id="belief">
-  <div class="belief-img-col reveal-l"><img class="belief-img" src="./images/belief.jpg" alt="Kim — what I believe in"/></div>
-  <div class="belief-content">
-    <span class="s-label l-rose reveal">What I believe in</span>
-    <h2 class="s-title reveal">Every person holds<br/>their <em>own answers.</em></h2>
-    <p class="body-p reveal">My role isn't to tell you what to do. It's to create the conditions where you can think clearly, feel safe, and trust yourself again.</p>
-    <p class="body-p reveal d1">Movement taught me that real change comes from within. That stillness is the precondition for true momentum. This is the thread running through everything I do — in yoga, in business, in coaching.</p>
-    <div class="silver-line reveal d2"></div>
-    <a href="https://calendly.com/kim-untangle/30min" class="btn btn-rose reveal d2">Let's work together</a>
+    <p class="approach-note reveal">All through a mindful, grounded approach that keeps you, the person, at the centre.</p>
   </div>
 </section>
 
@@ -678,13 +670,13 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
         <span class="s-label l-rose reveal">How we work together</span>
         <h2 class="s-title reveal">A journey built<br/><em>around you.</em></h2>
       </div>
-      <p class="body-p reveal">No template. No one-size-fits-all. Every engagement starts from where you actually are — and moves at a pace that serves your growth.</p>
+      <p class="body-p reveal">No template. No one-size-fits-all. Every engagement starts from where you actually are, and moves at a pace that serves your growth.</p>
     </div>
     <div class="process-steps">
       <div class="process-step reveal">
         <div class="step-num">1</div>
         <h3>Discovery Call</h3>
-        <p class="body-p">A free 30-minute conversation. No agenda — just space to explore what's bringing you here and whether we're the right fit.</p>
+        <p class="body-p">A free 30-minute conversation. No agenda, just space to explore what's bringing you here and whether we're the right fit.</p>
       </div>
       <div class="process-step reveal d1">
         <div class="step-num">2</div>
@@ -694,7 +686,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
       <div class="process-step reveal d2">
         <div class="step-num">3</div>
         <h3>Your Way Forward</h3>
-        <p class="body-p">Clarity. Direction. Momentum. A renewed confidence in who you are and where you're going — with the tools to keep moving.</p>
+        <p class="body-p">Clarity. Direction. Momentum. A renewed confidence in who you are and where you're going, with the tools to keep moving.</p>
       </div>
     </div>
     <div class="process-cta reveal">
@@ -714,23 +706,36 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
     <div class="testi-grid">
       <div class="testi-card reveal">
         <div class="testi-q">"</div>
-        <p class="testi-text">I can not think of anyone more empathetic and impactful. She leads by example and by influence — a perfect match for helping you scale and find your way forward.</p>
+        <p class="testi-text">I can not think of anyone more empathetic and impactful. She leads by example and by influence, a perfect match for helping you scale and find your way forward.</p>
         <div class="testi-bar"></div>
         <div class="testi-name">Nicolas M.</div><div class="testi-role">Product Manager</div>
       </div>
       <div class="testi-card reveal d1">
         <div class="testi-q">"</div>
-        <p class="testi-text">Kim is a formidable presence with an enviable ability to build real connection — combined with a truly strategic mindset and a focus on what matters.</p>
+        <p class="testi-text">Kim is a formidable presence with an enviable ability to build real connection, combined with a truly strategic mindset and a focus on what matters.</p>
         <div class="testi-bar"></div>
         <div class="testi-name">Chris C.</div><div class="testi-role">Chief Revenue Officer</div>
       </div>
       <div class="testi-card reveal d2">
         <div class="testi-q">"</div>
-        <p class="testi-text">Kim has that natural warmth that makes you feel heard and cared for. She brings deep experience and a problem-solver's instinct — driven by what's truly right for you.</p>
+        <p class="testi-text">Kim has that natural warmth that makes you feel heard and cared for. She brings deep experience and a problem-solver's instinct, driven by what's truly right for you.</p>
         <div class="testi-bar"></div>
         <div class="testi-name">Nathalie L.</div><div class="testi-role">Chief People Officer</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- BELIEF -->
+<section class="belief" id="belief">
+  <div class="belief-img-col reveal-l"><img class="belief-img" src="./images/belief.jpg" alt="Kim, what I believe in"/></div>
+  <div class="belief-content">
+    <span class="s-label l-rose reveal">What I believe in</span>
+    <h2 class="s-title reveal">Every person holds<br/>their <em>own answers.</em></h2>
+    <p class="body-p reveal">My role isn't to tell you what to do. It's to create the conditions where you can think clearly, feel safe, and trust yourself again.</p>
+    <p class="body-p reveal d1">Movement taught me that real change comes from within. That stillness is the precondition for true momentum. This is the thread running through everything I do, in yoga, in business, in coaching.</p>
+    <div class="silver-line reveal d2"></div>
+    <a href="https://calendly.com/kim-untangle/30min" class="btn btn-rose reveal d2">Let's work together</a>
   </div>
 </section>
 
@@ -748,12 +753,14 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   </svg>
   <div class="contact-bg-word">untangle</div>
   <div class="contact-inner">
-    <span class="s-label l-light reveal" style="justify-content:center">Stay in touch</span>
+    <span class="s-label l-light reveal" style="justify-content:center">Get in touch</span>
     <h2 class="contact-title reveal">Ready to <em>untangle?</em></h2>
-    <p class="contact-sub reveal">Receive occasional reflections on clarity, leadership, and the art of moving forward — thoughtfully, not often.</p>
+    <p class="contact-sub reveal">A question, a thought, or ready to take the first step. I'd love to hear from you.</p>
     <div class="contact-form reveal">
-      <input type="email" placeholder="Your email address"/>
-      <button>Subscribe</button>
+      <input type="text" placeholder="Your name"/>
+      <input type="email" placeholder="Your email"/>
+      <textarea placeholder="Your message"></textarea>
+      <button type="submit">Send message</button>
     </div>
   </div>
 </section>
