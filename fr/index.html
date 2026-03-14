@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -19,21 +19,21 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   /* ── Electric Navy × Gold × Silver palette ── */
-  --fog:         #F5F4F1;      /* fond principal, blanc chaud cassé */
-  --mist:        #ECEAE6;      /* fond alterné, gris chaud */
-  --sand:        #F2EFE8;      /* fond sable doux, remplace petal */
-  --navy:        #0A1628;      /* midnight ocean, profond, riche */
-  --navy-mid:    #122040;      /* navy moyen, hover */
-  --navy-deep:   #05101A;      /* quasi noir marin, footer */
-  --gold:        #B8892A;      /* or muted, accent chaud gender-neutral */
-  --gold-mid:    #D4A84B;      /* or moyen, hover */
-  --gold-pale:   #EDD898;      /* or pâle, backgrounds légers */
-  --gold-xpale:  #F8F2E0;      /* or quasi blanc */
-  --silver:      #A8B0BA;      /* argent, texture & élégance */
-  --silver-light:#C8D0D8;      /* argent clair */
-  --silver-xlight:#E8ECF0;     /* argent quasi blanc */
-  --ink:         #1C1C22;      /* texte, quasi noir chaud */
-  --grey:        #6E6B72;      /* texte secondaire, assez foncé pour lisibilité */
+  --fog:         #F5F4F1;
+  --mist:        #ECEAE6;
+  --sand:        #F2EFE8;
+  --navy:        #0A1628;
+  --navy-mid:    #122040;
+  --navy-deep:   #05101A;
+  --gold:        #B8892A;
+  --gold-mid:    #D4A84B;
+  --gold-pale:   #EDD898;
+  --gold-xpale:  #F8F2E0;
+  --silver:      #A8B0BA;
+  --silver-light:#C8D0D8;
+  --silver-xlight:#E8ECF0;
+  --ink:         #1C1C22;
+  --grey:        #6E6B72;
   --font-serif:'Cormorant Garamond',Georgia,serif;
   --font-sans: 'DM Sans',sans-serif;
 }
@@ -69,14 +69,12 @@ nav.scrolled{
   text-decoration:none;color:var(--grey);position:relative;transition:color .25s;
   padding-bottom:2px;
 }
-/* Gold underline on hover */
 .nav-links a::after{
   content:'';position:absolute;bottom:-4px;left:0;right:0;height:1.5px;
   background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .32s;
 }
 .nav-links a:hover{color:var(--navy)}
 .nav-links a:hover::after{transform:scaleX(1)}
-/* Nav CTA, gold filled */
 .nav-cta{
   background:var(--gold)!important;color:#fff!important;
   padding:.45rem 1.2rem!important;
@@ -100,7 +98,7 @@ nav.scrolled{
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
-/* ── MOBILE MENU, navy full screen with big playful type ── */
+/* ── MOBILE MENU ── */
 .mobile-menu{
   display:none;position:fixed;inset:0;
   background:var(--navy);z-index:499;
@@ -143,8 +141,6 @@ nav.scrolled{
   padding-top:78px;
   position:relative;overflow:hidden;
 }
-
-/* Navy geometric accent, clean, no organic lines */
 .hero-silver-bg{
   position:absolute;top:-10%;right:-5%;
   width:55vw;height:80vh;
@@ -154,18 +150,15 @@ nav.scrolled{
     transparent 72%);
   pointer-events:none;z-index:0;
 }
-/* Gold accent corner, geometric, intentional */
 .hero-orb{
   position:absolute;bottom:0;right:0;
   width:40vw;height:40vw;max-width:480px;
   background:linear-gradient(135deg,rgba(184,137,42,.06) 0%,transparent 60%);
   pointer-events:none;z-index:0;
 }
-
 .hero-left{display:flex;flex-direction:column;justify-content:center;padding:4rem 3rem 5rem 5vw;position:relative;z-index:2}
 .hero-eyebrow{display:flex;align-items:center;gap:.8rem;font-size:.65rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:2.5rem;opacity:0;animation:fadeUp .6s .25s forwards}
 .eyebrow-dash{width:20px;height:1px;background:var(--gold-pale);flex-shrink:0}
-
 .hero-title{
   font-family:var(--font-serif);
   font-size:clamp(3.4rem,6.5vw,6rem);
@@ -176,22 +169,16 @@ nav.scrolled{
   opacity:0;animation:fadeUp .8s .4s forwards;
 }
 .hero-title em{font-style:italic;color:var(--gold);display:block}
-/* Gold accent line under title */
 .hero-title-line{display:none}
-
 .hero-tagline{font-size:.92rem;font-weight:300;line-height:1.95;color:var(--grey);max-width:360px;margin-bottom:3rem;padding-left:1.2rem;border-left:2px solid var(--gold-pale);opacity:0;animation:fadeUp .75s .58s forwards}
 .hero-actions{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;opacity:0;animation:fadeUp .75s .72s forwards}
-
 .hero-right{position:relative;overflow:hidden;align-self:stretch}
 .hero-img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;opacity:0;animation:fadeIn 1.2s .3s forwards}
-
-/* Silver accent on photo edge */
 .hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(26,43,107,.04) 0%,transparent 30%);pointer-events:none}
-
 .hero-scroll{position:absolute;bottom:2.5rem;left:5vw;display:flex;align-items:center;gap:1rem;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver);opacity:0;animation:fadeIn 1s 2s forwards;z-index:2}
 .scroll-line{display:none}
 
-/* ── TRUST, light background to separate from navy quote ── */
+/* ── TRUST ── */
 .trust{
   background:var(--mist);
   padding:1.3rem 5vw;
@@ -252,8 +239,6 @@ nav.scrolled{
 .approach-inner{max-width:1120px;margin:0 auto;position:relative;z-index:1}
 .approach-head{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:5rem}
 .approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
-
-/* Cards, gold top accent, silver border */
 .a-card{
   background:var(--fog);
   padding:2.8rem 2.2rem;
@@ -272,8 +257,6 @@ nav.scrolled{
 .picto{width:64px;height:64px;margin-bottom:1.4rem;display:block}
 .a-card h3{font-family:var(--font-serif);font-size:1.45rem;font-weight:400;color:var(--navy);margin-bottom:.65rem;line-height:1.2}
 .approach-note{max-width:1120px;margin:3.5rem auto 0;text-align:center;font-family:var(--font-serif);font-style:italic;color:var(--grey);font-size:1.05rem}
-
-
 
 /* ── ABOUT ── */
 .about{display:grid;grid-template-columns:1fr 1fr;background:var(--fog);position:relative}
@@ -324,7 +307,7 @@ nav.scrolled{
 .testi-name{font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)}
 .testi-role{font-size:.7rem;font-weight:300;color:var(--grey);margin-top:.2rem}
 
-/* ── CONTACT, navy, not rose ── */
+/* ── CONTACT ── */
 .contact{
   background:var(--navy);
   padding:9rem 5vw 8rem;
@@ -332,7 +315,6 @@ nav.scrolled{
   position:relative;overflow:hidden;
 }
 .contact-bg-word{display:none}
-/* Warm gold glow top-right */
 .contact::after{
   content:'';position:absolute;top:-20%;right:-10%;
   width:50vw;height:50vw;
@@ -446,55 +428,32 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
 
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
-  /* Grids → single column */
   .hero,.who,.about,.belief{grid-template-columns:1fr}
-
-  /* Hero */
   .hero{padding-top:70px}
   .hero-left{padding:3rem 1.5rem 2.5rem}
   .hero-right{min-height:75vw}
   .hero-actions{flex-direction:column;align-items:flex-start;gap:1.2rem}
-
-  /* Images, photo first on mobile */
   .who-img-col,.about-img-col,.belief-img-col{min-height:55vw;order:-1}
   .who-content,.about-content,.belief-content{padding:3.5rem 1.5rem}
-
-  /* Sections padding */
   .approach,.process,.testi,.contact{padding:4rem 1.5rem}
   .quote{padding:3.5rem 1.5rem}
-
-  /* Approach & process heads */
   .approach-head,.process-head{grid-template-columns:1fr;gap:1.5rem;margin-bottom:3rem}
   .approach-grid{grid-template-columns:1fr;gap:1.2rem}
   .testi-grid{grid-template-columns:1fr;gap:1.2rem}
   .process-steps{grid-template-columns:1fr;gap:2rem}
   .process-steps::before{display:none}
-
-  /* Nav */
   nav{padding:1.1rem 1.5rem}
   .nav-links{display:none}
   .hamburger{display:flex}
-
-  /* Trust */
   .trust{gap:1rem;padding:1rem 1.5rem;flex-direction:column;align-items:flex-start}
   .trust-sep{display:none}
   .trust-item{font-size:.7rem}
-
-  /* Background counters, too large on mobile */
   .who::before,.approach::before,.about::before,.belief::before,.process::before{display:none}
-
-  /* Testimonial cards */
   .testi-card{padding:2rem}
-
-  /* Contact form */
   .contact-form{max-width:100%}
-
-  /* Footer */
   footer{flex-direction:column;gap:1rem;text-align:center;padding:1.8rem 1.5rem}
   .footer-links{flex-wrap:wrap;justify-content:center;gap:1.2rem}
   .footer-right{align-items:center}
-
-  /* Typography scale down */
   .s-title{font-size:clamp(1.9rem,6vw,2.8rem)}
   .contact-title{font-size:clamp(2rem,7vw,3.5rem)}
   .quote-text{font-size:clamp(1.5rem,5vw,2rem)}
@@ -517,22 +476,22 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
 
 <!-- NAV -->
 <nav id="nav">
-  <a class="nav-logo" href="#">untangle<span class="nav-logo-dot">.</span></a>
+  <a class="nav-logo" href="/fr/">untangle<span class="nav-logo-dot">.</span></a>
   <ul class="nav-links">
-    <li><a href="#who">About</a></li>
-    <li><a href="#approach">My approach</a></li>
-    <li><a href="#process">How we work together</a></li>
+    <li><a href="#who">À propos</a></li>
+    <li><a href="#approach">Mon approche</a></li>
+    <li><a href="#process">Concrètement</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
-    <li class="lang-switch"><a href="#" class="lang-active">EN</a><span>|</span><a href="/fr/">FR</a></li>
+    <li class="lang-switch"><a href="/">EN</a><span>|</span><a href="#" class="lang-active">FR</a></li>
   </ul>
   <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mob">
-  <a href="#who" onclick="closeMob()" data-label="About">About</a>
-  <a href="#approach" onclick="closeMob()" data-label="My approach">My approach</a>
-  <a href="#process" onclick="closeMob()" data-label="How we work together">How we work together</a>
+  <a href="#who" onclick="closeMob()" data-label="À propos">À propos</a>
+  <a href="#approach" onclick="closeMob()" data-label="Mon approche">Mon approche</a>
+  <a href="#process" onclick="closeMob()" data-label="Concrètement">Concrètement</a>
   <a href="#contact" onclick="closeMob()" data-label="Contact">Contact</a>
-  <span class="mob-close-hint">press esc or tap outside to close</span>
+  <span class="mob-close-hint">appuyez sur échap ou touchez dehors pour fermer</span>
 </div>
 
 <!-- HERO -->
@@ -540,22 +499,22 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   <div class="hero-silver-bg"></div>
   <div class="hero-orb"></div>
   <div class="hero-left">
-    <div class="hero-eyebrow"><span class="eyebrow-dash"></span>Coaching · Brussels</div>
+    <div class="hero-eyebrow"><span class="eyebrow-dash"></span>Coaching · Bruxelles</div>
     <h1 class="hero-title">
-      Your space<br/>
-      to <em>move forward.</em>
+      Votre espace<br/>
+      pour <em>avancer.</em>
     </h1>
     <span class="hero-title-line"></span>
-    <p class="hero-tagline">You have more answers than you think. I hold the space for you to reach them.</p>
+    <p class="hero-tagline">Vous avez plus de réponses en vous que vous ne le croyez. Je vous accompagne pour que vous puissiez les trouver.</p>
     <div class="hero-actions">
-      <a href="mailto:kim@untangle.be" class="btn btn-petrol">Let's get started</a>
-      <a href="#who" class="btn-ghost">Learn more <span class="arr">→</span></a>
+      <a href="mailto:kim@untangle.be" class="btn btn-petrol">Commencer</a>
+      <a href="#who" class="btn-ghost">En savoir plus <span class="arr">→</span></a>
     </div>
   </div>
   <div class="hero-right">
-    <img class="hero-img" src="./images/hero.jpg" alt="Kim Ngan Tran"/>
+    <img class="hero-img" src="../images/hero.jpg" alt="Kim Ngan Tran"/>
   </div>
-  <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
+  <div class="hero-scroll"><div class="scroll-line"></div>Défiler</div>
 </section>
 
 <!-- TRUST -->
@@ -567,23 +526,22 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
         <text x="8" y="11" text-anchor="middle" font-family="Georgia,serif" font-size="4" fill="#B8BEC4">ICF</text>
       </svg>
     </div>
-    <span><span class="t-strong">ICF Member</span> · International Coaching Federation</span>
+    <span><span class="t-strong">Membre ICF</span> · International Coaching Federation</span>
   </div>
   <div class="trust-sep"></div>
   <div class="trust-item">
     <svg class="t-icon" viewBox="0 0 14 14" fill="none"><path d="M7 1.2L8.4 5.1l4.1.1-3.2 2.4 1.2 4L7 9.1 3.5 11.5l1.2-4L1.5 5.2l4.1-.1z" stroke="currentColor" stroke-width="1" fill="none"/></svg>
-    <span><span class="t-strong">Nova Terra Coach Training</span> · Certified Coach</span>
+    <span><span class="t-strong">Nova Terra Coach Training</span> · Coach certifiée</span>
   </div>
   <div class="trust-sep"></div>
   <div class="trust-item">
     <svg class="t-icon" viewBox="0 0 14 14" fill="none"><path d="M2 11C5 5 9 3 12 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M10 2.5L12 5 9 6.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <span><span class="t-strong">16+ years</span> · in business</span>
+    <span><span class="t-strong">16+ ans</span> · en entreprise</span>
   </div>
 </div>
 
 <!-- QUOTE -->
 <section class="quote">
-  <!-- nature rings watermark -->
   <svg class="quote-rings" viewBox="0 0 600 600" fill="none">
     <circle cx="300" cy="300" r="280" stroke="white" stroke-width="1"/>
     <circle cx="300" cy="300" r="220" stroke="white" stroke-width=".8"/>
@@ -595,7 +553,6 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
     <span class="quote-mark">"</span>
     <p class="quote-text">You cannot stop the waves,<br/>but you can learn <em>how to surf.</em></p>
     <cite class="quote-cite">Jon Kabat-Zinn</cite>
-    <!-- silver lining wave -->
     <svg class="quote-silver" width="140" height="30" viewBox="0 0 140 30" fill="none">
       <path d="M4 18C18 6 28 26 44 16C60 6 70 22 88 14C104 6 116 18 136 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
       <path d="M4 24C20 14 32 30 48 20C64 10 76 26 94 18C110 10 120 22 136 18" stroke="currentColor" stroke-width="1" stroke-linecap="round" fill="none" opacity=".4"/>
@@ -606,41 +563,41 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
 <!-- WHO -->
 <section class="who" id="who">
   <div class="who-img-col reveal-l">
-    <img class="who-img" src="./images/who.jpg" alt="Kim Ngan Tran"/>
+    <img class="who-img" src="../images/who.jpg" alt="Kim Ngan Tran"/>
     <div class="who-img-overlay"></div>
   </div>
   <div class="who-content">
-    <span class="s-label l-rose reveal">Who I work with</span>
-    <h2 class="s-title reveal">Something feels stuck.<br/>You're ready <em>to move.</em></h2>
-    <p class="body-p who-intro reveal">You've already built a lot. Yet somewhere, momentum stalled. Maybe the path isn't clear. Maybe you're carrying too much. Maybe you simply know something needs to change, and you haven't found the words for it yet.</p>
+    <span class="s-label l-rose reveal">Qui j'accompagne</span>
+    <h2 class="s-title reveal">Quelque chose bloque.<br/>Vous sentez que c'est <em>le moment.</em></h2>
+    <p class="body-p who-intro reveal">Vous avez déjà beaucoup construit. Et pourtant, quelque part, l'élan s'est perdu. Le chemin n'est plus évident. Peut-être portez-vous trop. Peut-être savez-vous simplement que quelque chose doit changer, sans encore trouver les mots pour le dire.</p>
     <div class="pain-list reveal">
-      <div class="pain-item"><div class="pain-dot"></div><span>Entrepreneurs &amp; leaders at a crossroads</span></div>
-      <div class="pain-item"><div class="pain-dot"></div><span>Professionals seeking deeper meaning in their work</span></div>
-      <div class="pain-item"><div class="pain-dot"></div><span>People navigating a major life transition</span></div>
-      <div class="pain-item"><div class="pain-dot"></div><span>Anyone who feels stuck and ready to move forward</span></div>
+      <div class="pain-item"><div class="pain-dot"></div><span>Entrepreneurs et dirigeants à un tournant</span></div>
+      <div class="pain-item"><div class="pain-dot"></div><span>Professionnels en quête de sens dans leur travail</span></div>
+      <div class="pain-item"><div class="pain-dot"></div><span>Personnes traversant une transition de vie importante</span></div>
+      <div class="pain-item"><div class="pain-dot"></div><span>Toute personne qui se sent bloquée et prête à bouger</span></div>
     </div>
-    <a href="mailto:kim@untangle.be" class="btn btn-petrol reveal">Let's get started</a>
+    <a href="mailto:kim@untangle.be" class="btn btn-petrol reveal">Commencer</a>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-content">
-    <span class="s-label l-petrol reveal">About Kim</span>
-    <h2 class="s-title reveal">Business experience.<br/><em>Human presence.</em></h2>
-    <p class="body-p reveal">I'm Kim. I've spent 16+ years building teams, leading operations, and navigating change in companies large and small. I know what it feels like to be the one holding everything together, and what it takes to let go of what no longer serves.</p>
-    <p class="body-p reveal d1">Yoga, mindfulness, movement — these aren't separate from my professional life. They're what makes me the coach I am: grounded, present, and genuinely committed to your growth.</p>
+    <span class="s-label l-petrol reveal">À propos de Kim</span>
+    <h2 class="s-title reveal">L'expérience du terrain.<br/><em>Une présence humaine.</em></h2>
+    <p class="body-p reveal">Je suis Kim. J'ai passé plus de 16 ans à construire des équipes, piloter des opérations et traverser des changements dans des entreprises de toutes tailles. Je sais ce que c'est d'être celle qui tient tout, et ce que ça demande de lâcher ce qui ne sert plus.</p>
+    <p class="body-p reveal d1">Le yoga, la pleine conscience, le mouvement ne sont pas des à-côtés de ma vie professionnelle. C'est ce qui fait la coach que je suis : ancrée, présente, sincèrement engagée dans votre évolution.</p>
     <div class="tags reveal d2">
-      <span class="tag">16+ years in business</span>
-      <span class="tag tag-r">Yoga &amp; movement</span>
+      <span class="tag">16+ ans en entreprise</span>
+      <span class="tag tag-r">Yoga &amp; mouvement</span>
       <span class="tag">Startups &amp; corporates</span>
-      <span class="tag tag-r">Mindfulness</span>
-      <span class="tag">ICF Member</span>
+      <span class="tag tag-r">Pleine conscience</span>
+      <span class="tag">Membre ICF</span>
     </div>
-    <a href="mailto:kim@untangle.be" class="btn btn-petrol reveal d3">Let's get started</a>
+    <a href="mailto:kim@untangle.be" class="btn btn-petrol reveal d3">Commencer</a>
   </div>
   <div class="about-img-col reveal">
-    <img class="about-img" src="./images/about.jpg" alt="Kim, business experience, human presence"/>
+    <img class="about-img" src="../images/about.jpg" alt="Kim, expérience terrain, présence humaine"/>
     <div class="about-img-overlay"></div>
   </div>
 </section>
@@ -650,10 +607,10 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   <div class="approach-inner">
     <div class="approach-head">
       <div>
-        <span class="s-label l-rose reveal">My approach</span>
-        <h2 class="s-title reveal">Grounded presence.<br/><em>Real movement.</em></h2>
+        <span class="s-label l-rose reveal">Mon approche</span>
+        <h2 class="s-title reveal">Une présence ancrée.<br/><em>Un mouvement réel.</em></h2>
       </div>
-      <p class="body-p reveal">Coaching is not advice. It's a space where you can think freely, feel supported, and move forward. I bring 16+ years of business experience together with mindfulness and a deep passion for movement.</p>
+      <p class="body-p reveal">Le coaching n'est pas du conseil. C'est un espace où l'on pense librement, où l'on se sent accompagné, où l'on avance. J'apporte 16+ ans d'expérience en entreprise, la pleine conscience, et une passion profonde pour le mouvement.</p>
     </div>
     <div class="approach-grid">
 
@@ -666,13 +623,12 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
           <path d="M20 48C30 34 42 44 52 34" stroke="#B07080" stroke-width="1.3" stroke-linecap="round" fill="none" opacity=".4"/>
           <circle cx="46" cy="28" r="4" stroke="#B07080" stroke-width="1.5" fill="none"/>
           <circle cx="46" cy="28" r="1.5" fill="#B07080"/>
-          <!-- silver sparkle -->
           <line x1="52" y1="22" x2="56" y2="18" stroke="#B8BEC4" stroke-width="1" stroke-linecap="round" opacity=".6"/>
           <line x1="54" y1="28" x2="58" y2="27" stroke="#B8BEC4" stroke-width="1" stroke-linecap="round" opacity=".5"/>
           <line x1="50" y1="20" x2="53" y2="16" stroke="#B8BEC4" stroke-width=".8" stroke-linecap="round" opacity=".35"/>
         </svg>
-        <h3>Unblock &amp; Clarify</h3>
-        <p class="body-p">You start by naming what's in the way. In the space we create together, you untangle the noise — fears, beliefs, competing priorities — to find what truly matters.</p>
+        <h3>Dénouer &amp; Clarifier</h3>
+        <p class="body-p">Vous commencez par nommer ce qui bloque. Dans l'espace que nous créons ensemble, vous démêlez le bruit, les peurs, les croyances, les priorités qui s'affrontent, pour retrouver ce qui compte vraiment.</p>
       </div>
 
       <!-- Card 2 -->
@@ -680,7 +636,6 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
         <div class="a-num">02</div>
         <svg class="picto" viewBox="0 0 64 64" fill="none">
           <circle cx="32" cy="32" r="28" fill="rgba(176,112,128,.07)"/>
-          <!-- compass with silver accents -->
           <circle cx="32" cy="32" r="18" stroke="#B07080" stroke-width="1" fill="none" opacity=".22"/>
           <circle cx="32" cy="32" r="11" stroke="#B8BEC4" stroke-width=".8" fill="none" opacity=".3"/>
           <path d="M32 14L35.5 28L32 32L28.5 28Z" fill="#B07080" opacity=".85"/>
@@ -690,8 +645,8 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
           <circle cx="32" cy="32" r="2.5" fill="#B07080"/>
           <line x1="32" y1="8" x2="32" y2="11" stroke="#B8BEC4" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
         </svg>
-        <h3>Define Your Direction</h3>
-        <p class="body-p">Clarity on what matters to you right now, and on the person you are today. Not someone else's definition of success — yours, drawn from your values, your strengths, your vision.</p>
+        <h3>Trouver votre direction</h3>
+        <p class="body-p">La clarté sur ce qui compte vraiment pour vous aujourd'hui, et sur la personne que vous êtes maintenant. Dessiner votre propre définition de la réussite, ancrée dans vos valeurs, vos forces, votre vision.</p>
       </div>
 
       <!-- Card 3 -->
@@ -699,27 +654,24 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
         <div class="a-num">03</div>
         <svg class="picto" viewBox="0 0 64 64" fill="none">
           <circle cx="32" cy="32" r="28" fill="rgba(176,112,128,.07)"/>
-          <!-- figure in motion, silver trail -->
           <circle cx="32" cy="17" r="5" stroke="#B07080" stroke-width="1.8" fill="none"/>
           <path d="M32 22C30 30 24 34 20 40" stroke="#B07080" stroke-width="2.2" stroke-linecap="round" fill="none"/>
           <path d="M32 28C36 25 42 27 46 24" stroke="#B07080" stroke-width="1.8" stroke-linecap="round" fill="none"/>
           <path d="M32 28C28 25 23 23 20 20" stroke="#B07080" stroke-width="1.4" stroke-linecap="round" fill="none" opacity=".4"/>
           <path d="M20 40C18 47 22 51 26 53" stroke="#B07080" stroke-width="1.8" stroke-linecap="round" fill="none"/>
           <path d="M20 40C24 46 28 50 32 52" stroke="#B07080" stroke-width="1.3" stroke-linecap="round" fill="none" opacity=".35"/>
-          <!-- silver motion trail -->
           <path d="M38 44C44 40 50 42 52 48" stroke="#B8BEC4" stroke-width="1.2" stroke-linecap="round" fill="none" opacity=".5"/>
           <path d="M42 50C46 46 50 48 52 52" stroke="#B8BEC4" stroke-width=".8" stroke-linecap="round" fill="none" opacity=".3"/>
           <circle cx="52" cy="48" r="2" fill="#B8BEC4" opacity=".4"/>
         </svg>
-        <h3>Get in Motion</h3>
-        <p class="body-p">Action that feels right and unforced. A path forward that integrates who you are, professionally, personally, fully.</p>
+        <h3>Se mettre en mouvement</h3>
+        <p class="body-p">Une action juste et non forcée. Un chemin qui intègre qui vous êtes, professionnellement, personnellement, pleinement.</p>
       </div>
     </div>
-    <!-- silver lining wave -->
     <svg style="display:block;margin:4rem auto 0;color:var(--silver);opacity:.35;width:180px;height:32px" viewBox="0 0 180 32" fill="none">
       <path d="M4 20C20 8 34 28 52 18C70 8 82 24 102 16C122 8 138 22 176 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
     </svg>
-    <p class="approach-note reveal">All through a mindful, grounded approach that keeps you, the person, at the centre.</p>
+    <p class="approach-note reveal">Le tout dans une approche ancrée et consciente qui vous garde, vous, la personne, au centre.</p>
   </div>
 </section>
 
@@ -728,30 +680,30 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   <div class="process-inner">
     <div class="process-head">
       <div>
-        <span class="s-label l-rose reveal">How we work together</span>
-        <h2 class="s-title reveal">A journey built<br/><em>around you.</em></h2>
+        <span class="s-label l-rose reveal">Concrètement</span>
+        <h2 class="s-title reveal">Un parcours construit<br/><em>autour de vous.</em></h2>
       </div>
-      <p class="body-p reveal">No template. No one-size-fits-all. Everything starts from where you actually are, and moves at a pace that serves your growth.</p>
+      <p class="body-p reveal">Pas de modèle. Pas de solution toute faite. Tout part de là où vous en êtes vraiment, et avance au rythme qui sert votre évolution.</p>
     </div>
     <div class="process-steps">
       <div class="process-step reveal">
         <div class="step-num">1</div>
-        <h3>Chemistry Meeting</h3>
-        <p class="body-p">A 30-minute conversation, no agenda, no commitment. A chance to explore what's bringing you here, and whether we're the right fit to work together.</p>
+        <h3>Séance découverte</h3>
+        <p class="body-p">Une conversation de 30 minutes, sans agenda, sans engagement. L'occasion d'explorer ce qui vous amène ici, et de voir si nous sommes le bon duo pour travailler ensemble.</p>
       </div>
       <div class="process-step reveal d1">
         <div class="step-num">2</div>
-        <h3>Untangle Sessions</h3>
-        <p class="body-p">A coaching journey shaped around your situation, your goals, your rhythm. At the depth and pace that serves you best.</p>
+        <h3>Séances Untangle</h3>
+        <p class="body-p">Un parcours façonné autour de votre situation, vos objectifs, votre rythme. À la profondeur et au rythme qui vous conviennent.</p>
       </div>
       <div class="process-step reveal d2">
         <div class="step-num">3</div>
-        <h3>Your Way Forward</h3>
-        <p class="body-p">Clarity. Direction. Momentum. Not something I give you, something you build, in a space designed to let you.</p>
+        <h3>Votre chemin</h3>
+        <p class="body-p">Clarté. Direction. Élan. Pas quelque chose que je vous apporte, quelque chose que vous construisez, dans un espace conçu pour vous le permettre.</p>
       </div>
     </div>
     <div class="process-cta reveal">
-      <a href="mailto:kim@untangle.be" class="btn btn-rose">Let's get started</a>
+      <a href="mailto:kim@untangle.be" class="btn btn-rose">Commencer</a>
     </div>
   </div>
 </section>
@@ -761,25 +713,25 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   <div class="testi-sheen"></div>
   <div class="testi-inner">
     <div class="testi-head reveal">
-      <span class="s-label l-rose">Client words</span>
-      <h2 class="s-title reveal">What people say<br/>about working <em>with me.</em></h2>
+      <span class="s-label l-rose">Témoignages</span>
+      <h2 class="s-title reveal">Ce que disent ceux qui ont<br/>travaillé <em>avec moi.</em></h2>
     </div>
     <div class="testi-grid">
       <div class="testi-card reveal">
         <div class="testi-q">"</div>
-        <p class="testi-text">I can not think of anyone more empathetic and impactful. She leads by example and by influence, a perfect match for helping you scale and find your way forward.</p>
+        <p class="testi-text">Je ne vois personne de plus empathique et efficace. Elle montre l'exemple et influence avec justesse, une présence idéale pour vous aider à grandir et trouver votre voie.</p>
         <div class="testi-bar"></div>
         <div class="testi-name">Nicolas M.</div><div class="testi-role">Product Manager</div>
       </div>
       <div class="testi-card reveal d1">
         <div class="testi-q">"</div>
-        <p class="testi-text">Kim is a formidable presence with an enviable ability to build real connection, combined with a truly strategic mindset and a focus on what matters.</p>
+        <p class="testi-text">Kim a une présence rare et une capacité enviable à créer de vraies connexions, alliée à un esprit stratégique et un sens aigu de l'essentiel.</p>
         <div class="testi-bar"></div>
         <div class="testi-name">Chris C.</div><div class="testi-role">Chief Revenue Officer</div>
       </div>
       <div class="testi-card reveal d2">
         <div class="testi-q">"</div>
-        <p class="testi-text">Kim has that natural warmth that makes you feel heard and cared for. She brings deep experience and a problem-solver's instinct, driven by what's truly right for you.</p>
+        <p class="testi-text">Kim a cette chaleur naturelle qui fait qu'on se sent écouté et considéré. Elle apporte une expérience solide et un instinct aiguisé, toujours guidé par ce qui est juste pour vous.</p>
         <div class="testi-bar"></div>
         <div class="testi-name">Nathalie L.</div><div class="testi-role">Chief People Officer</div>
       </div>
@@ -789,20 +741,19 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
 
 <!-- BELIEF -->
 <section class="belief" id="belief">
-  <div class="belief-img-col reveal-l"><img class="belief-img" src="./images/belief.jpg" alt="Kim, what I believe in"/></div>
+  <div class="belief-img-col reveal-l"><img class="belief-img" src="../images/belief.jpg" alt="Kim, ce qui me porte"/></div>
   <div class="belief-content">
-    <span class="s-label l-rose reveal">What I believe in</span>
-    <h2 class="s-title reveal">Every person holds<br/>their <em>own answers.</em></h2>
-    <p class="body-p reveal">My role isn't to tell you what to do. It's to create the conditions where you can think clearly, feel safe, and trust yourself again.</p>
-    <p class="body-p reveal d1">Movement taught me that real change comes from within. That stillness is the precondition for true momentum. This is the thread that connects everything I do, in yoga, in business, in coaching.</p>
+    <span class="s-label l-rose reveal">Ce qui me porte</span>
+    <h2 class="s-title reveal">Chacun porte<br/>ses <em>propres réponses.</em></h2>
+    <p class="body-p reveal">Mon rôle n'est pas de vous dire quoi faire. C'est de créer les conditions pour que vous puissiez penser clairement, vous sentir en sécurité, et vous faire confiance à nouveau.</p>
+    <p class="body-p reveal d1">Le mouvement m'a appris que le vrai changement vient de l'intérieur. Que le calme est la condition du vrai élan. C'est le fil qui relie tout ce que je fais, dans le yoga, en entreprise, dans le coaching.</p>
     <div class="silver-line reveal d2"></div>
-    <a href="mailto:kim@untangle.be" class="btn btn-rose reveal d2">Let's get started</a>
+    <a href="mailto:kim@untangle.be" class="btn btn-rose reveal d2">Commencer</a>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <!-- botanical watermark -->
   <svg class="contact-nature" viewBox="0 0 380 380" fill="none">
     <circle cx="190" cy="190" r="170" stroke="currentColor" stroke-width="1"/>
     <circle cx="190" cy="190" r="130" stroke="currentColor" stroke-width=".7"/>
@@ -814,14 +765,14 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   </svg>
   <div class="contact-bg-word">untangle</div>
   <div class="contact-inner">
-    <span class="s-label l-light reveal" style="justify-content:center">Get in touch</span>
-    <h2 class="contact-title reveal">Ready to <em>untangle?</em></h2>
-    <p class="contact-sub reveal">A question, a thought, or ready to take the first step. I'd love to hear from you.</p>
+    <span class="s-label l-light reveal" style="justify-content:center">Nous écrire</span>
+    <h2 class="contact-title reveal">Prête à <em>démêler ?</em></h2>
+    <p class="contact-sub reveal">Une question, une pensée, ou l'envie de faire le premier pas. Je serais ravie d'avoir de vos nouvelles.</p>
     <div class="contact-form reveal">
-      <input type="text" placeholder="Your name"/>
-      <input type="email" placeholder="Your email"/>
-      <textarea placeholder="Your message"></textarea>
-      <button type="submit">Send message</button>
+      <input type="text" placeholder="Votre nom"/>
+      <input type="email" placeholder="Votre email"/>
+      <textarea placeholder="Votre message"></textarea>
+      <button type="submit">Envoyer</button>
     </div>
   </div>
 </section>
@@ -832,29 +783,29 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
     <div class="cookie-text">
       <span class="cookie-icon">🍪</span>
       <div>
-        <strong>100% gluten-free &amp; dairy-free cookies.</strong>
-        <span>This site uses the digital kind — harmless little cookies that help understand how people find their way here. No wheat, no milk, no tricks.</span>
+        <strong>100% sans gluten &amp; sans lactose.</strong>
+        <span>Ce site utilise le genre numérique — de petits cookies inoffensifs qui aident à comprendre comment les visiteurs trouvent leur chemin jusqu'ici. Pas de blé, pas de lait, pas d'entourloupe.</span>
       </div>
     </div>
     <div class="cookie-actions">
-      <button class="cookie-accept" onclick="acceptCookies()">Works for me</button>
-      <button class="cookie-decline" onclick="declineCookies()">No thanks</button>
+      <button class="cookie-accept" onclick="acceptCookies()">Ça me va</button>
+      <button class="cookie-decline" onclick="declineCookies()">Non merci</button>
     </div>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <a class="footer-logo" href="#">untangle<span class="footer-logo-dot">.</span></a>
+  <a class="footer-logo" href="/fr/">untangle<span class="footer-logo-dot">.</span></a>
   <div class="footer-links">
-    <a href="#who">About</a>
-    <a href="#process">How we work together</a>
+    <a href="#who">À propos</a>
+    <a href="#process">Concrètement</a>
     <a href="#">LinkedIn</a>
-    <a href="#">Legal</a>
+    <a href="#">Mentions légales</a>
   </div>
   <div class="footer-right">
     <span class="footer-copy">© 2025 Untangle · Kim Ngan Tran</span>
-    <span class="footer-credits">Photo credits: Lucile Dizier</span>
+    <span class="footer-credits">Crédits photo : Lucile Dizier</span>
   </div>
 </footer>
 
@@ -874,8 +825,6 @@ const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
 },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal,.reveal-l').forEach(el=>obs.observe(el));
-
-// Custom cursor removed
 
 // Cookie banner
 (function(){
