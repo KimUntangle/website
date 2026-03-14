@@ -774,12 +774,18 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
     <span class="s-label l-light reveal" style="justify-content:center">Nous écrire</span>
     <h2 class="contact-title reveal">Ready to <em>untangle?</em></h2>
     <p class="contact-sub reveal">Une question, une pensée, ou l'envie de faire le premier pas. Je serais ravie d'avoir de vos nouvelles.</p>
-    <div class="contact-form reveal">
-      <input type="text" placeholder="Votre nom"/>
-      <input type="email" placeholder="Votre email"/>
-      <textarea placeholder="Votre message"></textarea>
+    <form class="contact-form reveal" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="f08c74f6-8247-4b91-941d-c950fd67165b"/>
+      <input type="hidden" name="subject" value="Nouveau message depuis le site Untangle"/>
+      <input type="hidden" name="from_name" value="Site Untangle"/>
+      <input type="text" name="last_name" placeholder="Nom" required/>
+      <input type="text" name="first_name" placeholder="Prénom" required/>
+      <input type="email" name="email" placeholder="Votre email" required/>
+      <textarea name="message" placeholder="Votre message" required></textarea>
       <button type="submit">Envoyer</button>
-    </div>
+      <p class="form-success" style="display:none;color:var(--gold);font-size:.8rem;text-align:center">Merci — je vous recontacte bientôt.</p>
+      <p class="form-error" style="display:none;color:#c0392b;font-size:.8rem;text-align:center">Une erreur s'est produite. Veuillez réessayer.</p>
+    </form>
   </div>
 </section>
 
@@ -850,6 +856,31 @@ function declineCookies(){
   localStorage.setItem('cookieChoice','declined');
   document.getElementById('cookieBanner').classList.remove('visible');
 }
+
+// Contact form
+document.querySelector('.contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('button[type="submit"]');
+  const success = this.querySelector('.form-success');
+  const error = this.querySelector('.form-error');
+  btn.textContent = 'Envoi…';
+  btn.disabled = true;
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {method:'POST', body: new FormData(this)});
+    const data = await res.json();
+    if (data.success) {
+      this.reset();
+      success.style.display = 'block';
+      error.style.display = 'none';
+      btn.textContent = 'Envoyé !';
+    } else { throw new Error(); }
+  } catch {
+    error.style.display = 'block';
+    success.style.display = 'none';
+    btn.textContent = 'Envoyer';
+    btn.disabled = false;
+  }
+});
 
 </script>
 </body>
