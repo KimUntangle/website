@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Conditions Générales de Vente · Untangle</title>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-89KKYC1RRV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-89KKYC1RRV');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --fog:#F5F4F1;
+  --mist:#ECEAE6;
+  --navy:#0A1628;
+  --navy-deep:#05101A;
+  --gold:#B8892A;
+  --gold-mid:#D4A84B;
+  --gold-pale:#EDD898;
+  --silver:#A8B0BA;
+  --silver-light:#C8D0D8;
+  --ink:#1C1C22;
+  --grey:#6E6B72;
+  --font-serif:'Cormorant Garamond',Georgia,serif;
+  --font-sans:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--fog);color:var(--ink);overflow-x:hidden}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.6rem 5vw;
+  background:rgba(245,244,241,.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--silver-light);
+  box-shadow:0 2px 24px rgba(26,43,107,.06);
+}
+.nav-logo{
+  font-family:var(--font-serif);font-size:1.45rem;font-weight:400;
+  letter-spacing:.05em;text-decoration:none;color:var(--navy);
+  display:flex;align-items:baseline;
+}
+.nav-logo-dot{color:var(--gold);transition:transform .3s,color .3s;display:inline-block}
+.nav-logo:hover .nav-logo-dot{transform:rotate(180deg) scale(1.4);color:var(--navy)}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-back{font-size:.65rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:var(--grey);transition:color .25s;display:flex;align-items:center;gap:.5rem}
+.nav-back:hover{color:var(--navy)}
+.nav-back-arr{font-size:.8rem;line-height:1}
+.lang-switch{display:flex;align-items:center;gap:.35rem;padding-left:1rem;border-left:1px solid var(--silver-light)}
+.lang-switch a{font-size:.65rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--silver);transition:color .2s}
+.lang-switch a:hover{color:var(--gold)}
+.lang-switch a.lang-active{color:var(--navy);font-weight:500}
+.lang-switch span{color:var(--silver-light);font-size:.6rem}
+
+/* PAGE HEADER */
+.page-header{
+  background:var(--navy);
+  padding:7rem 5vw 4rem;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.page-header::before{
+  content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:600px;height:600px;
+  border-radius:50%;border:1px solid rgba(184,137,42,.06);
+  pointer-events:none;
+}
+.page-header-eyebrow{
+  font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.2rem;
+  display:flex;align-items:center;justify-content:center;gap:.8rem;
+}
+.eyebrow-dash{width:20px;height:1px;background:var(--gold-pale);flex-shrink:0}
+.page-header h1{
+  font-family:var(--font-serif);font-size:clamp(2.4rem,5vw,3.8rem);
+  font-weight:300;color:#fff;letter-spacing:-.01em;margin-bottom:1rem;
+}
+.page-header h1 em{font-style:italic;color:var(--gold)}
+.page-header-meta{font-size:.72rem;color:rgba(255,255,255,.3);letter-spacing:.1em}
+
+/* CONTENT */
+.legal-wrap{max-width:760px;margin:0 auto;padding:5rem 5vw 6rem}
+
+.legal-toc{
+  background:#fff;border:1px solid var(--silver-light);
+  padding:2rem 2.5rem;margin-bottom:4rem;
+}
+.legal-toc-title{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.legal-toc ol{list-style:none;counter-reset:toc;display:flex;flex-direction:column;gap:.6rem}
+.legal-toc li{counter-increment:toc;font-size:.78rem}
+.legal-toc li::before{content:counter(toc,upper-roman) ". ";color:var(--silver);font-size:.72rem}
+.legal-toc a{text-decoration:none;color:var(--grey);transition:color .2s}
+.legal-toc a:hover{color:var(--gold)}
+
+.legal-preamble{
+  background:#fff;border-left:3px solid var(--gold-pale);
+  padding:2rem 2.5rem;margin-bottom:4rem;
+}
+.legal-preamble-title{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+
+.legal-section{margin-bottom:3.5rem}
+.legal-section:last-child{margin-bottom:0}
+.legal-article{
+  font-family:var(--font-serif);font-size:1.55rem;font-weight:400;
+  color:var(--navy);margin-bottom:1.2rem;padding-bottom:.8rem;
+  border-bottom:1px solid var(--silver-light);
+  display:flex;align-items:baseline;gap:.75rem;
+}
+.legal-article-num{font-size:.62rem;font-family:var(--font-sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);flex-shrink:0}
+
+.legal-sub{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--silver);margin-bottom:.5rem;margin-top:1.6rem}
+.legal-body{font-size:.9rem;line-height:1.9;color:var(--grey)}
+.legal-body + .legal-body{margin-top:1rem}
+.legal-body a{color:var(--gold);text-decoration:none}
+.legal-body a:hover{text-decoration:underline}
+.legal-body strong{color:var(--ink);font-weight:500}
+
+.legal-list{margin-top:.8rem;margin-left:1.4rem;display:flex;flex-direction:column;gap:.4rem}
+.legal-list li{font-size:.9rem;line-height:1.8;color:var(--grey)}
+.legal-list li::marker{color:var(--gold-pale)}
+
+.defs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1.2rem}
+.def-item{background:#fff;border:1px solid var(--silver-light);padding:1.1rem 1.3rem}
+.def-term{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:.35rem}
+.def-body{font-size:.8rem;color:var(--grey);line-height:1.65}
+
+.services-list{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem}
+.service-pill{display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;color:var(--grey)}
+.service-pill::before{content:'';width:6px;height:6px;background:var(--gold-pale);border-radius:50%;flex-shrink:0}
+
+/* FOOTER */
+footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.06);flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:var(--font-serif);font-size:1.25rem;color:var(--fog);text-decoration:none;letter-spacing:.05em}
+.footer-logo-dot{color:var(--gold)}
+.footer-links{display:flex;gap:2rem;flex-wrap:wrap}
+.footer-links a{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.2);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold-mid)}
+.footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:.25rem}
+.footer-copy{font-size:.66rem;color:rgba(255,255,255,.15)}
+.footer-credits{font-size:.6rem;color:rgba(255,255,255,.1)}
+
+@media(max-width:600px){
+  .defs-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center}
+  .footer-links{justify-content:center}
+  .footer-right{align-items:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/fr/">untangle<span class="nav-logo-dot">.</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="/fr/"><span class="nav-back-arr">←</span> Retour au site</a>
+    <div class="lang-switch">
+      <a href="/terms/">EN</a>
+      <span>|</span>
+      <a href="/fr/terms/" class="lang-active">FR</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-eyebrow"><span class="eyebrow-dash"></span>Untangle · Kim Ngân Tran<span class="eyebrow-dash"></span></div>
+  <h1>Conditions Générales <em>de Vente</em></h1>
+  <div class="page-header-meta">Dernière mise à jour : décembre 2024</div>
+</div>
+
+<div class="legal-wrap">
+
+  <!-- Preamble -->
+  <div class="legal-preamble">
+    <div class="legal-preamble-title">Préambule &amp; Définitions générales</div>
+    <p class="legal-body">Le présent document est établi dans le cadre des activités de <strong>Kim Ngân Tran</strong>, domiciliée au 60 Boîte 8 rue de Belle-Vue, 1000 Bruxelles, enregistrée auprès de la Banque-Carrefour des Entreprises.</p>
+    <p class="legal-body">Les présentes conditions générales de vente et d'utilisation sont disponibles uniquement en anglais à des fins de consultation et d'interprétation. Les offres proposées sont disponibles en anglais ou en français, pour les clients et utilisateurs. En cas d'achat ou de vente international impliquant une partie contractante étrangère, le droit belge reste applicable.</p>
+    <p class="legal-body">Les clients peuvent demander une copie datée des conditions générales de vente en vigueur à la date de leur commande ou réservation, en version imprimée ou numérique.</p>
+
+    <p class="legal-sub">Définitions</p>
+    <div class="defs-grid">
+      <div class="def-item"><div class="def-term">Utilisateur</div><div class="def-body">Toute personne qui utilise le site, à des fins de consultation ou de navigation.</div></div>
+      <div class="def-item"><div class="def-term">Client</div><div class="def-body">Toute personne qui fait appel aux services de la Coach.</div></div>
+      <div class="def-item"><div class="def-term">Service</div><div class="def-body">Services de coaching réalisés par Kim Ngân Tran.</div></div>
+      <div class="def-item"><div class="def-term">Prestataire</div><div class="def-body">Désigne Kim Ngân Tran en qualité de professionnelle.</div></div>
+      <div class="def-item"><div class="def-term">Coaching</div><div class="def-body">Service de coaching individuel ou collectif fourni par la Coach.</div></div>
+      <div class="def-item"><div class="def-term">Coach</div><div class="def-body">La désignation de Kim Ngân Tran lors d'une séance de coaching.</div></div>
+      <div class="def-item"><div class="def-term">Client consommateur</div><div class="def-body">Toute personne physique agissant à des fins étrangères à son activité commerciale, industrielle, artisanale, libérale ou agricole.</div></div>
+      <div class="def-item"><div class="def-term">Client non professionnel</div><div class="def-body">Toute personne morale n'agissant pas à des fins professionnelles.</div></div>
+      <div class="def-item"><div class="def-term">Client professionnel</div><div class="def-body">Toute personne physique ou morale, publique ou privée, agissant à des fins professionnelles.</div></div>
+      <div class="def-item"><div class="def-term">Contenu numérique</div><div class="def-body">Données produites et fournies sous forme numérique.</div></div>
+      <div class="def-item"><div class="def-term">Service numérique</div><div class="def-body">Service permettant au consommateur de créer, traiter, stocker, consulter, partager ou interagir avec des données sous forme numérique.</div></div>
+      <div class="def-item"><div class="def-term">Support durable</div><div class="def-body">Tout instrument permettant de stocker des informations personnelles pour une référence ultérieure, pendant une durée adaptée à la finalité visée.</div></div>
+      <div class="def-item"><div class="def-term">Données personnelles</div><div class="def-body">Données personnelles au sens de l'article 4, point 1, du Règlement (UE) 2016/679.</div></div>
+    </div>
+
+    <p class="legal-body" style="margin-top:1.6rem">Pour accéder aux services de la Coach, le client doit avoir la pleine capacité juridique : être une personne physique ou représenter une personne morale, être âgé de plus de 18 ans au moment de la signature du contrat, et ne pas être sous tutelle totale ou partielle.</p>
+    <p class="legal-body">Pour toute mise à jour ou modification des informations personnelles, la Coach peut exiger une vérification d'identité sous une forme appropriée.</p>
+    <p class="legal-body">En cas de non-respect des conditions de capacité ou des prérequis, le Client ou l'Utilisateur perdra l'accès jusqu'à régularisation. Il est donc essentiel que le Client ou l'Utilisateur renseigne avec exactitude ses données personnelles.</p>
+  </div>
+
+  <nav class="legal-toc" aria-label="Table des matières">
+    <div class="legal-toc-title">Articles</div>
+    <ol>
+      <li><a href="#art1">Services de coaching</a></li>
+      <li><a href="#art2">Nature des obligations</a></li>
+      <li><a href="#art3">Honoraires applicables</a></li>
+      <li><a href="#art4">Processus de réservation et de commande</a></li>
+    </ol>
+  </nav>
+
+  <!-- Article I -->
+  <section class="legal-section" id="art1">
+    <h2 class="legal-article"><span class="legal-article-num">Art. I</span> Services de coaching</h2>
+    <p class="legal-body">Les présentes conditions générales décrivent les droits et obligations de la Coach Kim Ngân Tran et de ses Clients.</p>
+    <p class="legal-body">En cas de contrat de coaching, les dispositions spécifiques prévalent sur les présentes conditions générales de vente.</p>
+    <p class="legal-body">La Coach propose des séances individuelles, entièrement personnalisées, adaptées au Client, afin d'apporter une nouvelle dynamique, notamment dans la vie professionnelle. Ce processus est co-construit activement et repose sur la confiance et les échanges issus des séances. Le coaching aide le Client à progresser, à partir de ses propres besoins, vers des solutions qui lui correspondent.</p>
+    <p class="legal-body">La Coach propose les options de service suivantes :</p>
+    <div class="services-list">
+      <div class="service-pill">Untangle Session</div>
+      <div class="service-pill">Untangle Series</div>
+      <div class="service-pill">SideKim</div>
+    </div>
+    <p class="legal-body" style="margin-top:1.2rem">Si nécessaire, la Coach se réserve le droit de modifier le contenu des séances de coaching en fonction des besoins du Client. Les détails du programme de coaching sont fournis à titre indicatif. Tous les utilisateurs ou clients doivent consulter régulièrement les conditions générales.</p>
+    <p class="legal-body">Les conditions générales peuvent également être transmises au Client sur un support durable.</p>
+    <p class="legal-body">Le présent document constitue un contrat et engage le Client envers la Coach.</p>
+  </section>
+
+  <!-- Article II -->
+  <section class="legal-section" id="art2">
+    <h2 class="legal-article"><span class="legal-article-num">Art. II</span> Nature des obligations</h2>
+
+    <p class="legal-sub">Pour la Coach</p>
+    <p class="legal-body">La Coach est soumise à une obligation de moyens au titre du droit commun des contrats. Elle s'engage à mettre en œuvre tous les moyens nécessaires pour répondre aux besoins et attentes du Client.</p>
+    <p class="legal-body">La Coach garantit la conformité de la fourniture des produits numériques. Tous les produits sont réputés conformes et exempts de vices cachés. En vertu des articles L 217-4 et suivants du Code de la consommation, et des articles 1641 et suivants du Code civil, chaque produit vendu doit être conforme à sa description et exempt de vices cachés.</p>
+    <p class="legal-body">Le Client consommateur ou non professionnel dispose de <strong>30 mois</strong> pour faire valoir ses droits concernant la conformité d'un produit.</p>
+
+    <p class="legal-sub">Pour le Client</p>
+    <p class="legal-body">Le Client s'engage à participer de manière active et à communiquer ses attentes de façon claire et précise, afin de guider la Coach dans la réalisation de la prestation. Le Client s'engage à régler les honoraires des séances de coaching, conformément à l'Article III.</p>
+    <p class="legal-body">Le Client s'engage à ne pas partager les codes d'accès aux programmes et services de la Coach, sous peine de suspension et de suppression des droits d'accès, et d'éventuels dommages et intérêts.</p>
+    <p class="legal-body">Tout engagement contractuel avec la Coach est conclu <em>intuitu personae</em>, ce qui signifie que :</p>
+    <ul class="legal-list">
+      <li>Le Client ne peut pas céder ou transférer son engagement contractuel à un tiers.</li>
+      <li>Toute cession ou transfert, même en cas de changement d'activité, est interdit sauf accord écrit explicite des deux parties.</li>
+    </ul>
+  </section>
+
+  <!-- Article III -->
+  <section class="legal-section" id="art3">
+    <h2 class="legal-article"><span class="legal-article-num">Art. III</span> Honoraires applicables</h2>
+    <p class="legal-body">Les tarifs des Untangle Sessions et Untangle Series sont établis sur la base d'un honoraire horaire.</p>
+    <p class="legal-body">Les modes de paiement acceptés sont le virement bancaire ou le paiement en ligne via un prestataire de paiement tiers. Aucun paiement échelonné n'est autorisé, sauf offre spécifique sur le site ou accord écrit préalable.</p>
+    <p class="legal-body">La Coach se réserve le droit de modifier ses tarifs à tout moment. Les prestations sont néanmoins facturées aux tarifs en vigueur au moment de la demande. Les devis ou contrats non signés sont valables <strong>30 jours</strong> à compter de leur date d'envoi, sauf mention contraire.</p>
+    <p class="legal-body">Les remises et promotions sont limitées dans le temps et fixées par la Coach. Aucune remise ni avance n'est accordée pour paiement anticipé.</p>
+    <p class="legal-body">Les honoraires des séances de coaching sont exigibles à réception de la facture.</p>
+    <p class="legal-body">Tout retard de paiement entraîne la suspension immédiate de l'accès aux services et programmes de la Coach. Le Client est responsable des frais de rejet. Les comptes peuvent être suspendus ou supprimés.</p>
+    <p class="legal-body">Les pénalités de retard sont calculées au taux légal d'intérêt en vigueur, et les frais de recouvrement s'élèvent à <strong>40 € hors TVA</strong>.</p>
+  </section>
+
+  <!-- Article IV -->
+  <section class="legal-section" id="art4">
+    <h2 class="legal-article"><span class="legal-article-num">Art. IV</span> Processus de réservation et de commande</h2>
+    <p class="legal-body">L'accès aux services de coaching est initié par une demande du Client via :</p>
+    <ul class="legal-list">
+      <li>Les outils de réservation en ligne sur le site</li>
+      <li>Le formulaire de contact sur le site</li>
+      <li>Une demande par e-mail</li>
+      <li>Une demande via les réseaux sociaux</li>
+    </ul>
+    <p class="legal-body" style="margin-top:1.2rem">La Coach examine les demandes et se réserve le droit de refuser toute collaboration si les problématiques présentées ne sont pas compatibles avec les services proposés.</p>
+    <p class="legal-body">Avant tout achat ou passation de commande, le Client doit s'assurer que le produit ou service sélectionné correspond pleinement à ses besoins. En cas d'incohérence, le Client doit modifier ou annuler la demande avant de passer commande. Les commandes constituent des contrats fermes et définitifs.</p>
+  </section>
+
+</div><!-- /legal-wrap -->
+
+<footer>
+  <a class="footer-logo" href="/fr/">untangle<span class="footer-logo-dot">.</span></a>
+  <div class="footer-links">
+    <a href="/fr/">Accueil</a>
+    <a href="/fr/legal/">Mentions légales</a>
+    <a href="/fr/terms/">CGV</a>
+  </div>
+  <div class="footer-right">
+    <span class="footer-copy">© 2025 Untangle · Kim Ngan Tran</span>
+    <span class="footer-credits">Crédits photo : Lucile Dizier</span>
+  </div>
+</footer>
+
+</body>
+</html>

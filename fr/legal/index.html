@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mentions légales &amp; Politique de confidentialité · Untangle</title>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-89KKYC1RRV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-89KKYC1RRV');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --fog:#F5F4F1;
+  --mist:#ECEAE6;
+  --navy:#0A1628;
+  --navy-deep:#05101A;
+  --gold:#B8892A;
+  --gold-mid:#D4A84B;
+  --gold-pale:#EDD898;
+  --silver:#A8B0BA;
+  --silver-light:#C8D0D8;
+  --ink:#1C1C22;
+  --grey:#6E6B72;
+  --font-serif:'Cormorant Garamond',Georgia,serif;
+  --font-sans:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--fog);color:var(--ink);overflow-x:hidden}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.6rem 5vw;
+  background:rgba(245,244,241,.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--silver-light);
+  box-shadow:0 2px 24px rgba(26,43,107,.06);
+}
+.nav-logo{
+  font-family:var(--font-serif);font-size:1.45rem;font-weight:400;
+  letter-spacing:.05em;text-decoration:none;color:var(--navy);
+  display:flex;align-items:baseline;
+}
+.nav-logo-dot{color:var(--gold);transition:transform .3s,color .3s;display:inline-block}
+.nav-logo:hover .nav-logo-dot{transform:rotate(180deg) scale(1.4);color:var(--navy)}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-back{font-size:.65rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:var(--grey);transition:color .25s;display:flex;align-items:center;gap:.5rem}
+.nav-back:hover{color:var(--navy)}
+.nav-back-arr{font-size:.8rem;line-height:1}
+.lang-switch{display:flex;align-items:center;gap:.35rem;padding-left:1rem;border-left:1px solid var(--silver-light)}
+.lang-switch a{font-size:.65rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--silver);transition:color .2s}
+.lang-switch a:hover{color:var(--gold)}
+.lang-switch a.lang-active{color:var(--navy);font-weight:500}
+.lang-switch span{color:var(--silver-light);font-size:.6rem}
+
+/* PAGE HEADER */
+.page-header{
+  background:var(--navy);
+  padding:7rem 5vw 4rem;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.page-header::before{
+  content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:600px;height:600px;
+  border-radius:50%;border:1px solid rgba(184,137,42,.06);
+  pointer-events:none;
+}
+.page-header-eyebrow{
+  font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.2rem;
+  display:flex;align-items:center;justify-content:center;gap:.8rem;
+}
+.eyebrow-dash{width:20px;height:1px;background:var(--gold-pale);flex-shrink:0}
+.page-header h1{
+  font-family:var(--font-serif);font-size:clamp(2.4rem,5vw,3.8rem);
+  font-weight:300;color:#fff;letter-spacing:-.01em;margin-bottom:1rem;
+}
+.page-header h1 em{font-style:italic;color:var(--gold)}
+.page-header-meta{font-size:.72rem;color:rgba(255,255,255,.3);letter-spacing:.1em}
+
+/* CONTENT */
+.legal-wrap{max-width:760px;margin:0 auto;padding:5rem 5vw 6rem}
+
+.legal-toc{
+  background:#fff;border:1px solid var(--silver-light);
+  padding:2rem 2.5rem;margin-bottom:4rem;
+}
+.legal-toc-title{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.legal-toc ol{list-style:none;counter-reset:toc;display:flex;flex-direction:column;gap:.6rem}
+.legal-toc li{counter-increment:toc;font-size:.78rem}
+.legal-toc li::before{content:counter(toc) ". ";color:var(--silver);font-size:.72rem}
+.legal-toc a{text-decoration:none;color:var(--grey);transition:color .2s}
+.legal-toc a:hover{color:var(--gold)}
+
+.legal-section{margin-bottom:3.5rem}
+.legal-section:last-child{margin-bottom:0}
+.legal-article{
+  font-family:var(--font-serif);font-size:1.55rem;font-weight:400;
+  color:var(--navy);margin-bottom:1.2rem;padding-bottom:.8rem;
+  border-bottom:1px solid var(--silver-light);
+  display:flex;align-items:baseline;gap:.75rem;
+}
+.legal-article-num{font-size:.62rem;font-family:var(--font-sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);flex-shrink:0}
+
+.legal-sub{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--silver);margin-bottom:.5rem;margin-top:1.6rem}
+.legal-body{font-size:.9rem;line-height:1.9;color:var(--grey)}
+.legal-body + .legal-body{margin-top:1rem}
+.legal-body a{color:var(--gold);text-decoration:none}
+.legal-body a:hover{text-decoration:underline}
+.legal-body strong{color:var(--ink);font-weight:500}
+
+.legal-list{margin-top:.8rem;margin-left:1.4rem;display:flex;flex-direction:column;gap:.4rem}
+.legal-list li{font-size:.9rem;line-height:1.8;color:var(--grey)}
+.legal-list li::marker{color:var(--gold-pale)}
+
+.legal-rights{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:1rem;margin-top:1.2rem;
+}
+.legal-right-item{
+  background:#fff;border:1px solid var(--silver-light);
+  padding:1.1rem 1.3rem;
+}
+.legal-right-name{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:.35rem}
+.legal-right-desc{font-size:.8rem;color:var(--grey);line-height:1.65}
+
+/* FOOTER */
+footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.06);flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:var(--font-serif);font-size:1.25rem;color:var(--fog);text-decoration:none;letter-spacing:.05em}
+.footer-logo-dot{color:var(--gold)}
+.footer-links{display:flex;gap:2rem;flex-wrap:wrap}
+.footer-links a{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.2);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold-mid)}
+.footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:.25rem}
+.footer-copy{font-size:.66rem;color:rgba(255,255,255,.15)}
+.footer-credits{font-size:.6rem;color:rgba(255,255,255,.1)}
+
+@media(max-width:600px){
+  .legal-rights{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center}
+  .footer-links{justify-content:center}
+  .footer-right{align-items:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/fr/">untangle<span class="nav-logo-dot">.</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="/fr/"><span class="nav-back-arr">←</span> Retour au site</a>
+    <div class="lang-switch">
+      <a href="/legal/">EN</a>
+      <span>|</span>
+      <a href="/fr/legal/" class="lang-active">FR</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-eyebrow"><span class="eyebrow-dash"></span>Untangle · Kim Ngân Tran<span class="eyebrow-dash"></span></div>
+  <h1>Mentions légales &amp; <em>Confidentialité</em></h1>
+  <div class="page-header-meta">En vigueur à compter du : décembre 2024</div>
+</div>
+
+<div class="legal-wrap">
+
+  <nav class="legal-toc" aria-label="Table des matières">
+    <div class="legal-toc-title">Sommaire</div>
+    <ol>
+      <li><a href="#art1">Mentions légales</a></li>
+      <li><a href="#art2">Accès au site</a></li>
+      <li><a href="#art3">Contenu du site</a></li>
+      <li><a href="#art4">Gestion du site</a></li>
+      <li><a href="#art5">Responsabilités</a></li>
+      <li><a href="#art6">Liens hypertextes</a></li>
+      <li><a href="#art7">Collecte et protection des données</a></li>
+      <li><a href="#art8">Accès, rectification et suppression</a></li>
+    </ol>
+  </nav>
+
+  <!-- Article 1 -->
+  <section class="legal-section" id="art1">
+    <h2 class="legal-article"><span class="legal-article-num">Art. 1</span> Mentions légales</h2>
+
+    <p class="legal-sub">1.1 — Site</p>
+    <p class="legal-body">Untangle – Kim Ngân Tran</p>
+
+    <p class="legal-sub">1.2 — Éditeur</p>
+    <p class="legal-body">Untangle – Kim Ngân Tran, personne physique enregistrée sous le numéro <strong>BE 1014.660.580</strong>, dont le siège est situé à l'adresse suivante :<br>
+    60 Boîte 8, Rue de Belle-Vue, 1000 Bruxelles (Belgique)<br>
+    Adresse e-mail : <a href="mailto:kim@untangle.be">kim@untangle.be</a></p>
+
+    <p class="legal-sub">1.3 — Hébergeur</p>
+    <p class="legal-body">Le site Untangle est hébergé par <strong>Welflow</strong>, dont le siège social est situé au 398 11th Street, 2nd Floor, San Francisco, CA 94103, États-Unis.</p>
+  </section>
+
+  <!-- Article 2 -->
+  <section class="legal-section" id="art2">
+    <h2 class="legal-article"><span class="legal-article-num">Art. 2</span> Accès au site</h2>
+    <p class="legal-body">L'accès au site et son utilisation sont strictement limités à un usage personnel. Vous vous engagez à ne pas utiliser ce site, ni les informations ou données qu'il contient, à des fins commerciales, politiques ou publicitaires, ni pour toute forme de démarchage commercial, y compris l'envoi d'e-mails non sollicités.</p>
+  </section>
+
+  <!-- Article 3 -->
+  <section class="legal-section" id="art3">
+    <h2 class="legal-article"><span class="legal-article-num">Art. 3</span> Contenu du site</h2>
+    <p class="legal-body">Toutes les marques, photographies, textes, commentaires, illustrations, images animées ou non, séquences vidéo, sons, ainsi que toutes les applications informatiques utilisées pour faire fonctionner ce site, et plus généralement tous les éléments reproduits ou utilisés sur le site, sont protégés par les lois en vigueur en matière de propriété intellectuelle.</p>
+    <p class="legal-body">Ils sont la propriété pleine et exclusive de l'éditeur ou de ses partenaires. Toute reproduction, représentation, utilisation ou adaptation, sous quelque forme que ce soit, de tout ou partie de ces éléments, y compris les applications informatiques, sans l'accord écrit préalable de l'éditeur, est strictement interdite. Le fait pour l'éditeur de ne pas engager de procédure dès qu'il a connaissance d'utilisations non autorisées ne vaut pas acceptation ni renonciation à toute action en justice.</p>
+    <p class="legal-body">Crédits photographiques : <strong>Lucile Dizier</strong> – <a href="https://luciledizier.be" target="_blank" rel="noopener">luciledizier.be</a></p>
+  </section>
+
+  <!-- Article 4 -->
+  <section class="legal-section" id="art4">
+    <h2 class="legal-article"><span class="legal-article-num">Art. 4</span> Gestion du site</h2>
+    <p class="legal-body">Pour assurer une bonne gestion du site, l'éditeur peut à tout moment :</p>
+    <ul class="legal-list">
+      <li>Suspendre, interrompre ou limiter l'accès à tout ou partie du site, ou réserver l'accès à certaines parties du site à une catégorie spécifique d'utilisateurs ;</li>
+      <li>Supprimer toute information susceptible d'en perturber le fonctionnement ou de contrevenir aux lois nationales ou internationales ;</li>
+      <li>Suspendre le site pour effectuer des mises à jour.</li>
+    </ul>
+  </section>
+
+  <!-- Article 5 -->
+  <section class="legal-section" id="art5">
+    <h2 class="legal-article"><span class="legal-article-num">Art. 5</span> Responsabilités</h2>
+    <p class="legal-body">L'éditeur ne peut être tenu responsable de tout dysfonctionnement, panne, difficulté ou interruption de service empêchant l'accès au site ou à l'une de ses fonctionnalités.</p>
+    <p class="legal-body">Le matériel de connexion au site est sous votre entière responsabilité. Vous devez prendre toutes les mesures appropriées pour protéger votre matériel et vos données, notamment contre les attaques via Internet. Vous êtes seul responsable des sites et des données que vous consultez.</p>
+    <p class="legal-body">L'éditeur ne saurait être tenu responsable en cas de poursuites judiciaires à votre encontre :</p>
+    <ul class="legal-list">
+      <li>Du fait de l'utilisation du site ou de tout service accessible via Internet ;</li>
+      <li>Du non-respect des présentes conditions générales.</li>
+    </ul>
+    <p class="legal-body">L'éditeur n'est pas responsable des dommages causés à vous-même, à des tiers et/ou à votre matériel du fait de votre connexion ou de votre utilisation du site. Vous renoncez à tout recours contre l'éditeur à cet égard.</p>
+    <p class="legal-body">Si l'éditeur fait l'objet d'une procédure amiable ou judiciaire en raison de votre utilisation du site, il pourra se retourner contre vous afin d'obtenir réparation de l'intégralité des préjudices, sommes, condamnations et frais découlant d'une telle procédure.</p>
+  </section>
+
+  <!-- Article 6 -->
+  <section class="legal-section" id="art6">
+    <h2 class="legal-article"><span class="legal-article-num">Art. 6</span> Liens hypertextes</h2>
+    <p class="legal-body">Les utilisateurs sont autorisés à créer des liens hypertextes vers toute partie du site, sous réserve de l'autorisation de l'éditeur. Tout lien devra être supprimé sur simple demande de l'éditeur.</p>
+    <p class="legal-body">L'éditeur ne contrôle pas et décline toute responsabilité quant au contenu accessible via des liens vers d'autres sites.</p>
+  </section>
+
+  <!-- Article 7 -->
+  <section class="legal-section" id="art7">
+    <h2 class="legal-article"><span class="legal-article-num">Art. 7</span> Collecte et protection des données</h2>
+    <p class="legal-body">Vos données sont collectées par <strong>Untangle – Kim Ngân Tran</strong>.</p>
+    <p class="legal-body">Une donnée personnelle désigne toute information relative à une personne physique identifiée ou identifiable. Est identifiable toute personne pouvant être identifiée, directement ou indirectement, notamment par référence à un nom, un numéro d'identification, ou à un ou plusieurs éléments spécifiques à son identité physique, physiologique, génétique, psychique, économique, culturelle ou sociale.</p>
+    <p class="legal-body">Les informations personnelles collectées sur le site sont principalement utilisées par l'éditeur pour gérer sa relation avec vous et, le cas échéant, traiter vos demandes.</p>
+    <p class="legal-body">Les données personnelles collectées comprennent :</p>
+    <ul class="legal-list">
+      <li>Nom et prénom</li>
+      <li>Adresse e-mail</li>
+      <li>Adresse postale</li>
+    </ul>
+  </section>
+
+  <!-- Article 8 -->
+  <section class="legal-section" id="art8">
+    <h2 class="legal-article"><span class="legal-article-num">Art. 8</span> Accès, rectification et suppression de vos données</h2>
+    <p class="legal-body">Conformément à la réglementation applicable, vous disposez des droits suivants :</p>
+    <div class="legal-rights">
+      <div class="legal-right-item">
+        <div class="legal-right-name">Accès</div>
+        <div class="legal-right-desc">Le droit de savoir quelles données personnelles vous concernant sont détenues.</div>
+      </div>
+      <div class="legal-right-item">
+        <div class="legal-right-name">Rectification</div>
+        <div class="legal-right-desc">Le droit de mettre à jour ou corriger des données inexactes.</div>
+      </div>
+      <div class="legal-right-item">
+        <div class="legal-right-name">Suppression</div>
+        <div class="legal-right-desc">Le droit de demander l'effacement de vos données.</div>
+      </div>
+      <div class="legal-right-item">
+        <div class="legal-right-name">Limitation</div>
+        <div class="legal-right-desc">Le droit de demander une limitation du traitement de vos données.</div>
+      </div>
+      <div class="legal-right-item">
+        <div class="legal-right-name">Opposition</div>
+        <div class="legal-right-desc">Le droit de vous opposer au traitement de vos données.</div>
+      </div>
+      <div class="legal-right-item">
+        <div class="legal-right-name">Portabilité</div>
+        <div class="legal-right-desc">Le droit d'obtenir et de réutiliser vos données personnelles.</div>
+      </div>
+    </div>
+    <p class="legal-body" style="margin-top:1.6rem">Vous pouvez exercer ces droits en contactant :<br>
+    60 Boîte 8, Rue de Belle-Vue, 1000 Bruxelles, Belgique<br>
+    E-mail : <a href="mailto:kim@untangle.be">kim@untangle.be</a></p>
+    <p class="legal-body">Si vous estimez que vos droits n'ont pas été respectés, vous pouvez introduire une réclamation auprès de l'Autorité de protection des données belge : <a href="https://www.autoriteprotectiondonnees.be/citoyen" target="_blank" rel="noopener">autoriteprotectiondonnees.be</a></p>
+  </section>
+
+</div><!-- /legal-wrap -->
+
+<footer>
+  <a class="footer-logo" href="/fr/">untangle<span class="footer-logo-dot">.</span></a>
+  <div class="footer-links">
+    <a href="/fr/">Accueil</a>
+    <a href="/fr/legal/">Mentions légales</a>
+    <a href="/fr/terms/">CGV</a>
+  </div>
+  <div class="footer-right">
+    <span class="footer-copy">© 2025 Untangle · Kim Ngan Tran</span>
+    <span class="footer-credits">Crédits photo : Lucile Dizier</span>
+  </div>
+</footer>
+
+</body>
+</html>
