@@ -90,16 +90,6 @@ nav{
 /* CONTENT */
 .legal-wrap{max-width:760px;margin:0 auto;padding:5rem 5vw 6rem}
 
-.legal-toc{
-  background:#fff;border:1px solid var(--silver-light);
-  padding:2rem 2.5rem;margin-bottom:4rem;
-}
-.legal-toc-title{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
-.legal-toc ol{list-style:none;counter-reset:toc;display:flex;flex-direction:column;gap:.6rem}
-.legal-toc li{counter-increment:toc;font-size:.78rem}
-.legal-toc li::before{content:counter(toc,upper-roman) ". ";color:var(--silver);font-size:.72rem}
-.legal-toc a{text-decoration:none;color:var(--grey);transition:color .2s}
-.legal-toc a:hover{color:var(--gold)}
 
 .legal-preamble{
   background:#fff;border-left:3px solid var(--gold-pale);
@@ -206,16 +196,6 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
     <p class="legal-body">Pour toute mise à jour ou modification des informations personnelles, la Coach peut exiger une vérification d'identité sous une forme appropriée.</p>
     <p class="legal-body">En cas de non-respect des conditions de capacité ou des prérequis, le Client ou l'Utilisateur perdra l'accès jusqu'à régularisation. Il est donc essentiel que le Client ou l'Utilisateur renseigne avec exactitude ses données personnelles.</p>
   </div>
-
-  <nav class="legal-toc" aria-label="Table des matières">
-    <div class="legal-toc-title">Articles</div>
-    <ol>
-      <li><a href="#art1">Services de coaching</a></li>
-      <li><a href="#art2">Nature des obligations</a></li>
-      <li><a href="#art3">Honoraires applicables</a></li>
-      <li><a href="#art4">Processus de réservation et de commande</a></li>
-    </ol>
-  </nav>
 
   <!-- Article I -->
   <section class="legal-section" id="art1">
