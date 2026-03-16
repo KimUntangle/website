@@ -385,6 +385,36 @@ nav.scrolled{
 }
 .contact-form button:hover{background:var(--gold-mid)}
 
+/* ── FAQ ── */
+.faq{background:var(--fog);padding:10rem 5vw;position:relative;overflow:hidden}
+.faq-inner{max-width:1120px;margin:0 auto;position:relative;z-index:1}
+.faq-head{margin-bottom:5rem}
+.faq-list{max-width:720px;margin:0 auto}
+.faq-item{border-top:1px solid rgba(10,22,40,.08)}
+.faq-item:last-child{border-bottom:1px solid rgba(10,22,40,.08)}
+.faq-btn{
+  width:100%;display:flex;align-items:center;justify-content:space-between;
+  gap:1.5rem;padding:1.8rem 0;
+  background:none;border:none;cursor:pointer;text-align:left;
+  font-family:var(--font-sans);font-size:.95rem;font-weight:400;color:var(--navy);
+  transition:color .2s;
+}
+.faq-btn:hover{color:var(--gold)}
+.faq-toggle{
+  font-size:1.3rem;font-weight:300;line-height:1;
+  color:var(--gold);flex-shrink:0;
+  transition:transform .35s ease;
+  width:20px;text-align:center;user-select:none;
+}
+.faq-item.open .faq-toggle{transform:rotate(45deg)}
+.faq-body{overflow:hidden;max-height:0;transition:max-height .45s cubic-bezier(.4,0,.2,1)}
+.faq-body-inner{
+  padding-bottom:1.8rem;
+  font-size:.88rem;font-weight:300;line-height:1.95;
+  color:rgba(10,22,40,.55);
+}
+.faq-body-inner p+p{margin-top:.85rem}
+
 /* ── COOKIE BANNER ── */
 .cookie-banner{
   position:fixed;bottom:0;left:0;right:0;z-index:999;
@@ -465,7 +495,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   .who-content,.about-content,.belief-content{padding:3.5rem 1.5rem}
 
   /* Sections padding */
-  .approach,.process,.testi,.contact{padding:4rem 1.5rem}
+  .approach,.process,.testi,.faq,.contact{padding:4rem 1.5rem}
   .quote{padding:3.5rem 1.5rem}
 
   /* Approach & process heads */
@@ -509,7 +539,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
 @media(max-width:480px){
   .hero-left{padding:2.5rem 1.2rem 2rem}
   .who-content,.about-content,.belief-content{padding:2.5rem 1.2rem}
-  .approach,.process,.testi,.contact{padding:3rem 1.2rem}
+  .approach,.process,.testi,.faq,.contact{padding:3rem 1.2rem}
   .approach-grid{gap:1rem}
   .a-card{padding:2rem 1.5rem}
   .testi-card{padding:1.6rem}
@@ -807,6 +837,82 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-head">
+      <span class="s-label l-rose reveal">Questions</span>
+      <h2 class="s-title reveal">Questions?</h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item reveal">
+        <button class="faq-btn" aria-expanded="false">
+          <span>What kind of coach are you?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p>This question makes me smile, because it reveals something important: people often imagine a coach must be an expert in a specific field. My vision is different. Being a coach is a posture, where I strive to cultivate presence and deep listening for the other person, rather than expertise and answers.</p>
+            <p>You are the expert of your own path, your own experience, what drives you. My role is not to tell you where to go. It's to create the space where your own answers can emerge.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-btn" aria-expanded="false">
+          <span>How do I know you're the right fit?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p>The best way to find out? To meet. That's why we always start with a chemistry meeting: a free 30-minute conversation, no agenda, no commitment, to explore what's bringing you here and see if we're the right fit.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-btn" aria-expanded="false">
+          <span>How is coaching different from therapy or mentoring?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p>Therapy explores why you are where you are. Mentoring tells you what to do based on someone else's experience. Coaching starts from a different premise: you already have what it takes. My role is to help you access it.</p>
+            <p>In the coaching space, you look at the here and now: what's holding you back, what you really want, and what you can start moving towards today.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-btn" aria-expanded="false">
+          <span>What if I don't yet know what I want to work on?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p>That's not a problem. The desire to clarify or move forward is often what brings people to coaching in the first place. The first sessions often serve exactly that purpose: to define the contours of what you want to explore.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-btn" aria-expanded="false">
+          <span>What does a session actually look like?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p>A conversation, but not an ordinary one. We start from what you bring that day: a situation, a tension, a question. I listen, I ask questions, I reflect back. Not to give you answers, but to help your own answers emerge.</p>
+            <p>Sessions last between 45 minutes and one hour, online or in person in Brussels. We typically work over 3 to 5 sessions, but this is something we define together, based on what you want to explore.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <!-- botanical watermark -->
@@ -908,6 +1014,25 @@ function declineCookies(){
   localStorage.setItem('cookieChoice','declined');
   document.getElementById('cookieBanner').classList.remove('visible');
 }
+
+// FAQ accordion
+document.querySelectorAll('.faq-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var item=btn.closest('.faq-item');
+    var body=item.querySelector('.faq-body');
+    var isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(open){
+      open.classList.remove('open');
+      open.querySelector('.faq-body').style.maxHeight='';
+      open.querySelector('.faq-btn').setAttribute('aria-expanded','false');
+    });
+    if(!isOpen){
+      item.classList.add('open');
+      body.style.maxHeight=body.scrollHeight+'px';
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
+});
 
 // Contact form
 document.querySelector('.contact-form').addEventListener('submit', async function(e) {
