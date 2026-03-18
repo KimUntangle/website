@@ -266,7 +266,8 @@ nav.scrolled{
 .approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
 
 /* Cards, gold top accent, silver border */
-.a-card{
+.a-picto-wrap{height:148px;display:flex;align-items:center;margin-bottom:28px;}
+.a-card{display:flex;flex-direction:column;
   background:var(--fog);
   padding:2.8rem 2.2rem;
   position:relative;overflow:hidden;
@@ -689,7 +690,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
       <!-- Card 1 -->
       <div class="a-card reveal">
         <div class="a-num">01</div>
-        <img src="picto_ancre.svg" alt="Untangle" style="width:128px; height:128px; margin-bottom:12px;">
+        <div class="a-picto-wrap"><img src="picto_ancre.svg" alt="Untangle" style="width:128px; height:128px;"></div>
         <h3>Unblock &amp; Clarify</h3>
         <p class="body-p">You start by naming what's in the way. In the space we create together, you untangle the noise — fears, beliefs, competing priorities — to find what truly matters.</p>
       </div>
@@ -697,7 +698,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
       <!-- Card 2 -->
       <div class="a-card reveal d1">
         <div class="a-num">02</div>
-        <img src="picto_direction.svg" alt="Direction" style="width:96px; height:96px; margin-bottom:28px;">
+        <div class="a-picto-wrap"><img src="picto_direction.svg" alt="Direction" style="width:96px; height:96px;"></div>
         <h3>Define Your Direction</h3>
         <p class="body-p">Clarity on what matters to you right now, and on the person you are today. Not someone else's definition of success — yours, drawn from your values, your strengths, your vision.</p>
       </div>
@@ -705,7 +706,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
       <!-- Card 3 -->
       <div class="a-card reveal d2">
         <div class="a-num">03</div>
-        <img src="picto_mouvement.svg" alt="Mouvement" style="width:96px; height:96px; margin-bottom:28px;">
+        <div class="a-picto-wrap"><img src="picto_mouvement.svg" alt="Mouvement" style="width:96px; height:96px;"></div>
         <h3>Get in Motion</h3>
         <p class="body-p">Action that feels right and unforced. A path forward that integrates who you are, professionally, personally, fully.</p>
       </div>
