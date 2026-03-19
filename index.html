@@ -554,16 +554,16 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
 /* ── FOOTER v2 ── */
 footer{background:#0a1628;color:#c8d4e8;padding:2.5rem 2rem 1.5rem}
 .footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;margin-bottom:2rem;align-items:start;max-width:1200px;margin-left:auto;margin-right:auto}
-.footer-brand{font-size:18px;font-weight:500;color:#e8edf5;letter-spacing:.04em}
+.footer-brand{font-family:var(--font-serif);font-size:1.45rem;font-weight:400;letter-spacing:.05em;color:#e8edf5}
 .footer-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:rgba(200,212,232,.35);margin-bottom:.75rem}
-.footer-nav{display:flex;flex-direction:column;gap:.5rem;position:static}
+.footer-nav{display:flex;flex-direction:column;gap:.5rem;position:static;padding:0;justify-content:flex-start;align-items:flex-start;border:none;z-index:auto}
 .footer-nav a{font-size:14px;color:#c8d4e8;text-decoration:none}
 .footer-nav a:hover{color:#fff}
 .footer-contact{display:flex;flex-direction:column;gap:.5rem}
 .footer-contact a{font-size:14px;color:#c9a84c;text-decoration:none}
 .footer-divider{border:none;border-top:.5px solid rgba(255,255,255,.12);margin-bottom:1rem;max-width:1200px;margin-left:auto;margin-right:auto}
-.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:12px;color:rgba(200,212,232,.4);max-width:1200px;margin-left:auto;margin-right:auto}
-.footer-legal{display:flex;gap:1rem}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;font-size:12px;color:rgba(200,212,232,.4);max-width:1200px;margin-left:auto;margin-right:auto}
+.footer-legal{display:flex;gap:1.5rem}
 .footer-legal a{color:rgba(200,212,232,.4);text-decoration:none}
 @media(max-width:540px){
   .footer-top{grid-template-columns:1fr 1fr}
@@ -938,7 +938,7 @@ footer{background:#0a1628;color:#c8d4e8;padding:2.5rem 2rem 1.5rem}
 <footer>
   <div class="footer-top">
     <div class="footer-brand-col">
-      <div class="footer-brand">untangle.</div>
+      <div class="footer-brand">untangle<span style="color:#c9a84c;">.</span></div>
     </div>
     <div>
       <div class="footer-label">Navigation</div>
