@@ -510,22 +510,23 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
 }
 
 /* ── FOOTER v2 ── */
-footer{flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:3.5rem 5vw 2.5rem;gap:2.5rem}
-.footer-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;width:100%}
-.footer-col{display:flex;flex-direction:column;gap:.5rem}
-.footer-col-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:.3rem}
-.footer-links{flex-direction:column;gap:.45rem}
-.footer-bottom{width:100%;border-top:1px solid rgba(255,255,255,.06);padding-top:1.5rem}
-@media(max-width:960px){
-  footer{padding:3rem 1.5rem 2rem;gap:2rem;text-align:left}
-  .footer-cols{grid-template-columns:1fr 1fr;gap:2rem}
-  .footer-links{flex-wrap:nowrap;justify-content:flex-start;gap:.45rem}
-}
-@media(max-width:600px){
-  .footer-cols{grid-template-columns:1fr;gap:1.5rem}
-}
-@media(max-width:480px){
-  footer{padding:2.5rem 1.2rem 2rem}
+footer{background:#0a1628;color:#c8d4e8;padding:2.5rem 2rem 1.5rem}
+.footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;margin-bottom:2rem;align-items:start;max-width:1200px;margin-left:auto;margin-right:auto}
+.footer-brand{font-size:18px;font-weight:500;color:#e8edf5;letter-spacing:.04em}
+.footer-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:rgba(200,212,232,.35);margin-bottom:.75rem}
+.footer-nav{display:flex;flex-direction:column;gap:.5rem}
+.footer-nav a{font-size:14px;color:#c8d4e8;text-decoration:none}
+.footer-nav a:hover{color:#fff}
+.footer-contact{display:flex;flex-direction:column;gap:.5rem}
+.footer-contact a{font-size:14px;color:#c9a84c;text-decoration:none}
+.footer-divider{border:none;border-top:.5px solid rgba(255,255,255,.12);margin-bottom:1rem;max-width:1200px;margin-left:auto;margin-right:auto}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:12px;color:rgba(200,212,232,.4);max-width:1200px;margin-left:auto;margin-right:auto}
+.footer-legal{display:flex;gap:1rem}
+.footer-legal a{color:rgba(200,212,232,.4);text-decoration:none}
+@media(max-width:540px){
+  .footer-top{grid-template-columns:1fr 1fr}
+  .footer-brand-col{grid-column:1 / -1}
+  .footer-bottom{flex-direction:column;gap:.75rem}
 }
 </style>
 </head>
@@ -563,7 +564,7 @@ footer{flex-direction:column;align-items:flex-start;justify-content:flex-start;p
       pour <em>avancer.</em>
     </h1>
     <span class="hero-title-line"></span>
-    <p class="hero-tagline">Tu as plus de réponses en toi que tu ne le crois. Je t'accompagne pour que tu puisses les trouver.</p>
+    <p class="hero-tagline">Tu as plus de réponses en toi que tu ne le crois. Je suis là pour t'aider à les explorer.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn btn-petrol">Se lancer</a>
       <a href="#who" class="btn-ghost">En savoir plus <span class="arr">→</span></a>
@@ -892,35 +893,33 @@ footer{flex-direction:column;align-items:flex-start;justify-content:flex-start;p
 
 <!-- FOOTER -->
 <footer>
-  <a class="footer-logo" href="/fr/">untangle<span class="footer-logo-dot">.</span></a>
-  <div class="footer-cols">
-    <div class="footer-col">
-      <span class="footer-col-label">Navigation</span>
-      <div class="footer-links">
+  <div class="footer-top">
+    <div class="footer-brand-col">
+      <div class="footer-brand">untangle.</div>
+    </div>
+    <div>
+      <div class="footer-label">Navigation</div>
+      <nav class="footer-nav">
         <a href="#about">À propos</a>
-        <a href="#approach">Mon approche</a>
-        <a href="#process">Concrètement</a>
-        <a href="#faq">Avant de commencer</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
-      </div>
+      </nav>
     </div>
-    <div class="footer-col">
-      <span class="footer-col-label">Légal</span>
-      <div class="footer-links">
-        <a href="/fr/legal/">Mentions légales</a>
-        <a href="/fr/terms/">CGV</a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <span class="footer-col-label">Contact</span>
-      <div class="footer-links">
+    <div>
+      <div class="footer-label">Contact</div>
+      <div class="footer-contact">
         <a href="mailto:kim@untangle.be">kim@untangle.be</a>
-        <a href="https://www.linkedin.com/in/kim-ng%C3%A2n-tr%C3%A2n-58583ab/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/kimngan-tran" target="_blank">LinkedIn</a>
       </div>
     </div>
   </div>
+  <hr class="footer-divider">
   <div class="footer-bottom">
-    <span class="footer-copy">© 2025 Untangle · Kim Ngan Tran · Crédits photo : Lucile Dizier</span>
+    <span>© 2025 Untangle · Kim Ngan Tran · Crédits photo : Lucile Dizier</span>
+    <div class="footer-legal">
+      <a href="#legal">Mentions légales</a>
+      <a href="#terms">CGV</a>
+    </div>
   </div>
 </footer>
 
