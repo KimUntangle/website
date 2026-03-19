@@ -507,7 +507,25 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   .testi-card{padding:1.6rem}
   .mobile-menu a{font-size:2.4rem}
   .trust{padding:.9rem 1.2rem}
-  footer{padding:1.5rem 1.2rem}
+}
+
+/* ── FOOTER v2 ── */
+footer{flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:3.5rem 5vw 2.5rem;gap:2.5rem}
+.footer-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;width:100%}
+.footer-col{display:flex;flex-direction:column;gap:.5rem}
+.footer-col-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:.3rem}
+.footer-links{flex-direction:column;gap:.45rem}
+.footer-bottom{width:100%;border-top:1px solid rgba(255,255,255,.06);padding-top:1.5rem}
+@media(max-width:960px){
+  footer{padding:3rem 1.5rem 2rem;gap:2rem;text-align:left}
+  .footer-cols{grid-template-columns:1fr 1fr;gap:2rem}
+  .footer-links{flex-wrap:nowrap;justify-content:flex-start;gap:.45rem}
+}
+@media(max-width:600px){
+  .footer-cols{grid-template-columns:1fr;gap:1.5rem}
+}
+@media(max-width:480px){
+  footer{padding:2.5rem 1.2rem 2rem}
 }
 </style>
 </head>
@@ -517,7 +535,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
 <nav id="nav">
   <a class="nav-logo" href="/fr/">untangle<span class="nav-logo-dot">.</span></a>
   <ul class="nav-links">
-    <li><a href="#who">À propos</a></li>
+    <li><a href="#about">À propos</a></li>
     <li><a href="#approach">Mon approche</a></li>
     <li><a href="#process">Concrètement</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
@@ -526,7 +544,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mob">
-  <a href="#who" onclick="closeMob()" data-label="À propos">À propos</a>
+  <a href="#about" onclick="closeMob()" data-label="À propos">À propos</a>
   <a href="#approach" onclick="closeMob()" data-label="Mon approche">Mon approche</a>
   <a href="#process" onclick="closeMob()" data-label="Concrètement">Concrètement</a>
   <a href="#contact" onclick="closeMob()" data-label="Contact">Contact</a>
@@ -541,13 +559,13 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   <div class="hero-left">
     <div class="hero-eyebrow"><span class="eyebrow-dash"></span>Coaching · Bruxelles</div>
     <h1 class="hero-title">
-      Votre espace<br/>
+      Ton espace<br/>
       pour <em>avancer.</em>
     </h1>
     <span class="hero-title-line"></span>
-    <p class="hero-tagline">Vous avez plus de réponses en vous que vous ne le croyez. Je vous accompagne pour que vous puissiez les trouver.</p>
+    <p class="hero-tagline">Tu as plus de réponses en toi que tu ne le crois. Je t'accompagne pour que tu puisses les trouver.</p>
     <div class="hero-actions">
-      <a href="mailto:kim@untangle.be" class="btn btn-petrol">Commencer</a>
+      <a href="#contact" class="btn btn-petrol">Se lancer</a>
       <a href="#who" class="btn-ghost">En savoir plus <span class="arr">→</span></a>
     </div>
   </div>
@@ -599,15 +617,15 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   </div>
   <div class="who-content">
     <span class="s-label l-rose reveal">Qui j'accompagne</span>
-    <h2 class="s-title reveal">Quelque chose bloque.<br/>Vous sentez que c'est <em>le moment.</em></h2>
-    <p class="body-p who-intro reveal">Vous avez déjà beaucoup construit. Et pourtant, quelque part, l'élan s'est perdu. Le chemin n'est plus évident. Peut-être portez-vous trop. Ou vous sentez simplement que quelque chose doit bouger, sans encore pouvoir poser les mots justes.</p>
+    <h2 class="s-title reveal">Quelque chose bloque.<br/>Tu sens que c'est <em>le moment.</em></h2>
+    <p class="body-p who-intro reveal">Tu as déjà beaucoup construit. Et pourtant, quelque chose résiste. Peut-être portes-tu trop. Peut-être le chemin s'est-il simplement brouillé. Tu sens que quelque chose doit changer, sans encore parvenir à le nommer.</p>
     <div class="pain-list reveal">
-      <div class="pain-item"><div class="pain-dot"></div><span>Entrepreneurs et dirigeants à un tournant</span></div>
-      <div class="pain-item"><div class="pain-dot"></div><span>Professionnels en quête de sens dans leur travail</span></div>
+      <div class="pain-item"><div class="pain-dot"></div><span>Entrepreneur.e.s et dirigeant.e.s à un tournant</span></div>
+      <div class="pain-item"><div class="pain-dot"></div><span>Professionnel.le.s en quête de sens dans leur travail</span></div>
       <div class="pain-item"><div class="pain-dot"></div><span>Personnes traversant une transition de vie importante</span></div>
       <div class="pain-item"><div class="pain-dot"></div><span>Toute personne qui se sent bloquée et prête à bouger</span></div>
     </div>
-    <a href="mailto:kim@untangle.be" class="btn btn-petrol reveal">Commencer</a>
+    <a href="#contact" class="btn btn-petrol reveal">Faire le premier pas</a>
   </div>
 </section>
 
@@ -616,8 +634,8 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   <div class="about-content">
     <span class="s-label l-petrol reveal">À propos de Kim</span>
     <h2 class="s-title reveal">Le terrain<br/><em>et l'humain.</em></h2>
-    <p class="body-p reveal">Je m'appelle Kim. J'ai passé plus de seize ans à construire des équipes, piloter des opérations et naviguer le changement dans des entreprises de toutes tailles. Maman de deux enfants, je sais ce que c'est d'essayer d'être celle qui tient tout, et ce que ça demande de lâcher ce qui ne sert plus.</p>
-    <p class="body-p reveal d1">Le yoga, la pleine conscience, le mouvement ne sont pas séparés de ma vie professionnelle. C'est ce qui fait la coach que je suis : ancrée, présente, et sincèrement engagée dans ta progression.</p>
+    <p class="body-p reveal">Je m'appelle Kim. J'ai passé plus de seize ans à construire des équipes, piloter des opérations et naviguer le changement dans des entreprises de toutes tailles. Maman de deux enfants, je sais ce que c'est d'essayer d'être celle qui tient tout, et ce que ça demande de lâcher ce qui ne sert plus. Ma passion pour le yoga, la pleine conscience et le mouvement fait entièrement partie de ma vie professionnelle. C'est ce qui fait la coach que je suis : ancrée, présente, et sincèrement engagée dans ta progression.</p>
+    <p class="body-p reveal d1"></p>
     <div class="tags reveal d2">
       <span class="tag">16+ ans en entreprise</span>
       <span class="tag tag-r">Yoga &amp; mouvement</span>
@@ -625,7 +643,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
       <span class="tag tag-r">Pleine conscience</span>
       <span class="tag">Membre ICF</span>
     </div>
-    <a href="mailto:kim@untangle.be" class="btn btn-petrol reveal d3">Commencer</a>
+    <a href="#contact" class="btn btn-petrol reveal d3">Travailler ensemble</a>
   </div>
   <div class="about-img-col reveal">
     <img class="about-img" src="../images/about.jpg" alt="Kim, expérience terrain, présence humaine"/>
@@ -641,7 +659,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
         <span class="s-label l-rose reveal">Mon approche</span>
         <h2 class="s-title reveal">Cultiver la présence.<br/><em>Trouver l'élan.</em></h2>
       </div>
-      <p class="body-p reveal">Le coaching n'est pas du conseil. C'est un espace où l'on pense librement, où l'on se sent accompagné, où l'on avance. J'apporte 16+ ans d'expérience en entreprise, la pleine conscience, et une passion profonde pour le mouvement.</p>
+      <p class="body-p reveal">Le coaching n'est pas du conseil. C'est un espace où tu penses et t'exprimes librement, où tu observes ce qui se passe en toi, et où les pistes se dessinent. C'est toi qui choisis le cap. Je navigue avec toi, pour questionner, ouvrir les perspectives, accueillir ce qui se présente.</p>
     </div>
     <div class="approach-grid">
 
@@ -650,15 +668,15 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
         <div class="a-num">01</div>
         <img src="../picto_ancre.svg" alt="Untangle" style="width:128px; height:128px; margin-bottom:12px;">
         <h3>Dénouer &amp; Clarifier</h3>
-        <p class="body-p">Vous commencez par nommer ce qui bloque. Dans l'espace que nous créons ensemble, vous démêlez le bruit, les peurs, les croyances, les priorités qui s'affrontent, pour retrouver ce qui compte vraiment.</p>
+        <p class="body-p">Tu commences par nommer ce qui bloque. Dans l'espace que nous créons ensemble, tu démêles le bruit, les peurs, les croyances, les priorités qui s'affrontent, pour retrouver ce qui compte vraiment.</p>
       </div>
 
       <!-- Card 2 -->
       <div class="a-card reveal d1">
         <div class="a-num">02</div>
         <img src="../picto_direction.svg" alt="Direction" style="width:96px; height:96px; margin-bottom:28px;">
-        <h3>Trouver votre direction</h3>
-        <p class="body-p">La clarté sur ce qui compte vraiment pour vous aujourd'hui, et sur la personne que vous êtes maintenant. Dessiner votre propre définition de la réussite, ancrée dans vos valeurs, vos forces, votre vision.</p>
+        <h3>Trouver ta direction</h3>
+        <p class="body-p">La clarté sur ce qui compte vraiment pour toi aujourd'hui, et sur la personne que tu es maintenant. Dessiner ta propre définition de la réussite, ancrée dans tes valeurs, tes forces, ta vision.</p>
       </div>
 
       <!-- Card 3 -->
@@ -666,10 +684,10 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
         <div class="a-num">03</div>
         <img src="../picto_mouvement.svg" alt="Mouvement" style="width:96px; height:96px; margin-bottom:28px;">
         <h3>Se mettre en mouvement</h3>
-        <p class="body-p">Une action juste et non forcée. Un chemin qui intègre qui vous êtes, professionnellement, personnellement, pleinement.</p>
+        <p class="body-p">Une action juste et non forcée. Un chemin qui intègre qui tu es, professionnellement, personnellement, pleinement.</p>
       </div>
     </div>
-<p class="approach-note reveal">Le tout dans une approche ancrée et consciente qui vous garde, vous, la personne, au centre.</p>
+<p class="approach-note reveal">Le tout dans une approche ancrée et consciente qui te garde, toi, la personne, au centre.</p>
   </div>
 </section>
 
@@ -679,29 +697,29 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
     <div class="process-head">
       <div>
         <span class="s-label l-rose reveal">Concrètement</span>
-        <h2 class="s-title reveal">Un parcours construit<br/><em>autour de vous.</em></h2>
+        <h2 class="s-title reveal">Un parcours construit<br/><em>autour de toi.</em></h2>
       </div>
-      <p class="body-p reveal">Pas de modèle. Pas de solution toute faite. Tout part de là où vous en êtes vraiment, et avance au rythme qui sert votre évolution.</p>
+      <p class="body-p reveal">Pas de modèle. Pas de solution toute faite. Tout part de là où tu en es vraiment, et avance au rythme qui sert ton évolution.</p>
     </div>
     <div class="process-steps">
       <div class="process-step reveal">
         <div class="step-num">1</div>
         <h3>Séance découverte</h3>
-        <p class="body-p">Une conversation de 30 minutes, sans agenda, sans engagement. L'occasion d'explorer ce qui vous amène ici, et de voir si nous sommes le bon duo pour travailler ensemble.</p>
+        <p class="body-p">Une conversation de 30 minutes, sans agenda, sans engagement. L'occasion d'explorer ce qui t'amène ici, et de voir si nous sommes le bon duo pour travailler ensemble.</p>
       </div>
       <div class="process-step reveal d1">
         <div class="step-num">2</div>
         <h3>Séances Untangle</h3>
-        <p class="body-p">Un parcours façonné autour de votre situation, vos objectifs, votre rythme. À la profondeur et au rythme qui vous conviennent.</p>
+        <p class="body-p">Un parcours façonné autour de ta situation, tes objectifs, ton rythme. À la profondeur et au rythme qui te conviennent.</p>
       </div>
       <div class="process-step reveal d2">
         <div class="step-num">3</div>
-        <h3>Votre chemin</h3>
-        <p class="body-p">Clarté. Direction. Élan. Pas quelque chose que je vous apporte, quelque chose que vous construisez, dans un espace conçu pour vous le permettre.</p>
+        <h3>Ton chemin</h3>
+        <p class="body-p">Clarté. Direction. Élan. Pas quelque chose que je t'apporte, quelque chose que tu construis, dans un espace conçu pour te le permettre.</p>
       </div>
     </div>
     <div class="process-cta reveal">
-      <a href="mailto:kim@untangle.be" class="btn btn-rose">Commencer</a>
+      <a href="#contact" class="btn btn-rose">Prenons contact</a>
     </div>
   </div>
 </section>
@@ -712,12 +730,12 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   <div class="testi-inner">
     <div class="testi-head reveal">
       <span class="s-label l-rose">Témoignages</span>
-      <h2 class="s-title reveal">Ce que disent ceux qui ont<br/>travaillé <em>avec moi.</em></h2>
+      <h2 class="s-title reveal">Ce que disent celles et ceux qui ont<br/>travaillé <em>avec moi.</em></h2>
     </div>
     <div class="testi-grid">
       <div class="testi-card reveal">
         <div class="testi-q">”</div>
-        <p class="testi-text">Je ne vois personne de plus empathique et efficace. Elle montre l'exemple et influence avec justesse, une présence idéale pour vous aider à grandir et trouver votre voie.</p>
+        <p class="testi-text">Je ne vois personne de plus empathique et efficace. Elle montre l'exemple et influence avec justesse, une présence idéale pour t'aider à grandir et trouver ta voie.</p>
         <div class="testi-bar"></div>
         <div class="testi-name">Nicolas M.</div><div class="testi-role">Product Manager</div>
       </div>
@@ -729,7 +747,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
       </div>
       <div class="testi-card reveal d2">
         <div class="testi-q">”</div>
-        <p class="testi-text">Kim a cette chaleur naturelle qui fait qu'on se sent écouté et considéré. Elle apporte une expérience solide et un instinct aiguisé, toujours guidé par ce qui est juste pour vous.</p>
+        <p class="testi-text">Kim a cette chaleur naturelle qui fait qu'on se sent écouté et considéré. Elle apporte une expérience solide et un instinct aiguisé, toujours guidé par ce qui est juste pour toi.</p>
         <div class="testi-bar"></div>
         <div class="testi-name">Nathalie L.</div><div class="testi-role">Chief People Officer</div>
       </div>
@@ -742,11 +760,11 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   <div class="belief-img-col reveal-l"><img class="belief-img" src="../images/belief.jpg" alt="Kim, ce qui me porte"/></div>
   <div class="belief-content">
     <span class="s-label l-rose reveal">Ce qui me porte</span>
-    <h2 class="s-title reveal">Chacun porte<br/>ses <em>propres réponses.</em></h2>
-    <p class="body-p reveal">Mon rôle n'est pas de vous dire quoi faire. C'est de créer les conditions pour que vous puissiez penser clairement, vous sentir en sécurité, et vous faire confiance à nouveau.</p>
-    <p class="body-p reveal d1">Le mouvement m'a appris que le vrai changement vient de l'intérieur. Que le calme est la condition du vrai élan. C'est le fil qui relie tout ce que je fais, dans le yoga, en entreprise, dans le coaching.</p>
+    <h2 class="s-title reveal">Chacun.e porte<br/>ses <em>propres réponses.</em></h2>
+    <p class="body-p reveal">Mon rôle n'est pas de te dire quoi faire. C'est de créer les conditions pour que tu puisses penser clairement, te sentir en sécurité, et te faire confiance à nouveau. Le mouvement m'a appris que le vrai changement vient de l'intérieur. Que le calme est la condition du vrai élan. C'est le fil qui relie tout ce que je fais, dans le yoga, en entreprise, dans le coaching.</p>
+    <p class="body-p reveal d1"></p>
     <div class="silver-line reveal d2"></div>
-    <a href="mailto:kim@untangle.be" class="btn btn-rose reveal d2">Commencer</a>
+    <a href="#contact" class="btn btn-rose reveal d2">Commencer</a>
   </div>
 </section>
 
@@ -754,8 +772,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
 <section class="faq" id="faq">
   <div class="faq-inner">
     <div class="faq-head">
-      <span class="s-label l-rose reveal">Questions</span>
-      <h2 class="s-title reveal">Des questions ?</h2>
+      <h2 class="s-title reveal">Avant de commencer</h2>
     </div>
     <div class="faq-list">
 
@@ -767,7 +784,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
         <div class="faq-body">
           <div class="faq-body-inner">
             <p>Cette question me fait sourire, parce qu'elle révèle quelque chose d'important : on imagine souvent qu'un coach est expert dans un domaine. Ma vision est différente. Être coach est une posture, où je m'efforce de cultiver la présence et l'écoute de l'autre, plutôt que l'expertise et les réponses.</p>
-            <p>Vous êtes l'expert de votre propre chemin, de votre expérience, de ce qui vous anime. Mon rôle n'est pas de vous dire où aller. C'est de créer l'espace où vos propres réponses peuvent émerger. Cette posture, je l'ai construite à travers ma formation niveaux 1 et 2 en Art et Maîtrise du Coaching chez Nova Terra, école bruxelloise accréditée par l'International Coaching Federation (ICF).</p>
+            <p>Tu es l'expert de ton propre chemin, de ton expérience, de ce qui t'anime. Mon rôle n'est pas de te dire où aller. C'est de créer l'espace où tes propres réponses peuvent émerger. Cette posture, je l'ai construite à travers ma formation niveaux 1 et 2 en Art et Maîtrise du Coaching chez Nova Terra, école bruxelloise accréditée par l'International Coaching Federation (ICF).</p>
           </div>
         </div>
       </div>
@@ -779,7 +796,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
         </button>
         <div class="faq-body">
           <div class="faq-body-inner">
-            <p>La meilleure façon de le savoir ? Se rencontrer. C'est pour cela qu'on commence toujours par un chemistry meeting : une conversation gratuite de 30 minutes, sans agenda, sans engagement, pour explorer ce qui vous amène ici et voir si on est le bon match.</p>
+            <p>La meilleure façon de le savoir ? Se rencontrer. C'est pour cela qu'on commence toujours par un chemistry meeting : une conversation gratuite de 30 minutes, sans agenda, sans engagement, pour explorer ce qui t'amène ici et voir si on est le bon match.</p>
           </div>
         </div>
       </div>
@@ -817,7 +834,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
         <div class="faq-body">
           <div class="faq-body-inner">
             <p>Une conversation, mais pas une conversation ordinaire. On part de ce que tu apportes ce jour-là : une situation, une tension, une question. J'écoute, je questionne, je reflète. Pas pour te donner des réponses, mais pour t'aider à faire émerger les tiennes.</p>
-            <p>Les séances durent entre 45 minutes et une heure, en visio ou en présentiel à Bruxelles. En général, on travaille sur 3 à 5 séances, mais c'est quelque chose qu'on définit ensemble, en fonction de ce que tu veux explorer.</p>
+            <p>Les séances durent entre 45 minutes et une heure, en visio ou en présentiel à Bruxelles. Je coache en français et en anglais. En général, on travaille sur 3 à 5 séances, mais c'est quelque chose qu'on définit ensemble, en fonction de ce que tu veux explorer.</p>
           </div>
         </div>
       </div>
@@ -841,17 +858,17 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   <div class="contact-inner">
     <span class="s-label l-light reveal" style="justify-content:center">Nous écrire</span>
     <h2 class="contact-title reveal">Ready to <em>untangle?</em></h2>
-    <p class="contact-sub reveal">Une question, une pensée, ou l'envie de faire le premier pas. Je serais ravie d'avoir de vos nouvelles.</p>
+    <p class="contact-sub reveal">Une question, une pensée, ou l'envie de faire le premier pas. Je serais ravie d'avoir de tes nouvelles.</p>
     <form class="contact-form reveal" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="f08c74f6-8247-4b91-941d-c950fd67165b"/>
       <input type="hidden" name="subject" value="Nouveau message depuis le site Untangle"/>
       <input type="hidden" name="from_name" value="Site Untangle"/>
       <input type="text" name="first_name" placeholder="Prénom" required/>
       <input type="text" name="last_name" placeholder="Nom" required/>
-      <input type="email" name="email" placeholder="Votre email" required/>
-      <textarea name="message" placeholder="Votre message" required></textarea>
+      <input type="email" name="email" placeholder="Ton email" required/>
+      <textarea name="message" placeholder="Ton message" required></textarea>
       <button type="submit">Envoyer</button>
-      <p class="form-success" style="display:none;color:var(--gold);font-size:.8rem;text-align:center">Merci — je vous recontacte bientôt.</p>
+      <p class="form-success" style="display:none;color:var(--gold);font-size:.8rem;text-align:center">Merci — je te recontacte bientôt.</p>
       <p class="form-error" style="display:none;color:#c0392b;font-size:.8rem;text-align:center">Une erreur s'est produite. Veuillez réessayer.</p>
     </form>
   </div>
@@ -877,16 +894,34 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
 <!-- FOOTER -->
 <footer>
   <a class="footer-logo" href="/fr/">untangle<span class="footer-logo-dot">.</span></a>
-  <div class="footer-links">
-    <a href="#who">À propos</a>
-    <a href="#process">Concrètement</a>
-    <a href="https://www.linkedin.com/in/kim-ng%C3%A2n-tr%C3%A2n-58583ab/" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="/fr/legal/">Mentions légales</a>
-    <a href="/fr/terms/">CGV</a>
+  <div class="footer-cols">
+    <div class="footer-col">
+      <span class="footer-col-label">Navigation</span>
+      <div class="footer-links">
+        <a href="#about">À propos</a>
+        <a href="#approach">Mon approche</a>
+        <a href="#process">Concrètement</a>
+        <a href="#faq">Avant de commencer</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Légal</span>
+      <div class="footer-links">
+        <a href="/fr/legal/">Mentions légales</a>
+        <a href="/fr/terms/">CGV</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Contact</span>
+      <div class="footer-links">
+        <a href="mailto:kim@untangle.be">kim@untangle.be</a>
+        <a href="https://www.linkedin.com/in/kim-ng%C3%A2n-tr%C3%A2n-58583ab/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
   </div>
-  <div class="footer-right">
-    <span class="footer-copy">© 2025 Untangle · Kim Ngan Tran</span>
-    <span class="footer-credits">Crédits photo : Lucile Dizier</span>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Untangle · Kim Ngan Tran · Crédits photo : Lucile Dizier</span>
   </div>
 </footer>
 
