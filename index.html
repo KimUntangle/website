@@ -110,6 +110,7 @@ nav.scrolled{
 .hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.hamburger.open span{background:#ffffff}
 
 /* ── MOBILE MENU, navy full screen with big playful type ── */
 .mobile-menu{
@@ -589,7 +590,7 @@ footer{flex-direction:column;align-items:flex-start;justify-content:flex-start;p
   <a href="#about" onclick="closeMob()" data-label="About">About</a>
   <a href="#approach" onclick="closeMob()" data-label="My approach">My approach</a>
   <a href="#process" onclick="closeMob()" data-label="How we work together">How we work together</a>
-  <a href="#contact" onclick="closeMob()" data-label="Contact">Contact</a>
+  <a href="#contact" onclick="closeMob()" class="nav-cta" style="margin-top:1.5rem">Contact</a>
   <div class="mob-lang"><a class="mob-lang-active">EN</a><span>|</span><a href="/fr/">FR</a></div>
   <span class="mob-close-hint">press esc or tap outside to close</span>
 </div>
