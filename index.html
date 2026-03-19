@@ -54,7 +54,7 @@ body{font-family:var(--font-sans);background:var(--fog);color:var(--ink);overflo
 
 /* ── NAV ── */
 nav{
-  position:fixed;top:0;left:0;right:0;z-index:500;
+  position:fixed;top:0;left:0;right:0;z-index:1000;
   display:flex;align-items:center;justify-content:space-between;
   padding:1.6rem 5vw;
   transition:background .5s,padding .4s,border-color .4s,box-shadow .4s;
@@ -66,6 +66,11 @@ nav.scrolled{
   padding:1.1rem 5vw;
   border-color:var(--silver-light);
   box-shadow:0 2px 24px rgba(26,43,107,.06);
+}
+nav.menu-open{
+  background:rgba(245,244,241,.97);
+  backdrop-filter:blur(20px);
+  border-color:var(--silver-light);
 }
 .nav-logo{
   font-family:var(--font-serif);font-size:1.45rem;font-weight:400;
@@ -110,13 +115,13 @@ nav.scrolled{
 .hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-.hamburger.open span{background:#ffffff}
+.hamburger.open span{background:var(--navy)}
 
 
 /* ── MOBILE MENU, navy full screen with big playful type ── */
 .mobile-menu{
-  display:none;position:fixed;inset:0;
-  background:var(--navy);z-index:499;
+  display:none;position:fixed;top:64px;left:0;right:0;bottom:0;
+  background:var(--navy);z-index:999;
   flex-direction:column;align-items:center;justify-content:center;gap:2rem;
 }
 .mobile-menu.open{display:flex}
@@ -980,8 +985,8 @@ window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scro
 
 // Mobile menu
 const ham=document.getElementById('ham'),mob=document.getElementById('mob');
-ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});
-function closeMob(){ham.classList.remove('open');mob.classList.remove('open')}
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');nav.classList.toggle('menu-open')});
+function closeMob(){ham.classList.remove('open');mob.classList.remove('open');nav.classList.remove('menu-open')}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMob()});
 
 // Reveal on scroll
