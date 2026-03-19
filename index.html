@@ -243,6 +243,7 @@ nav.menu-open{
 .quote-mark{font-family:var(--font-serif);font-size:6rem;line-height:1;font-style:italic;color:#b8973a;display:block;margin-bottom:0}
 .quote-text{font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;font-style:italic;color:var(--fog);line-height:1.52;margin-bottom:1.6rem}
 .quote-text em{font-style:normal;color:var(--gold-mid);font-weight:400}
+.mob-break{display:none}
 .quote-cite{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
 .quote-silver{display:block;margin:2rem auto 0;color:var(--gold);opacity:.25}
 
@@ -545,6 +546,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   .s-title{font-size:clamp(1.9rem,6vw,2.8rem)}
   .contact-title{font-size:clamp(2rem,7vw,3.5rem)}
   .quote-text{font-size:clamp(1.5rem,5vw,2rem)}
+  .mob-break{display:block}
 }
 
 @media(max-width:480px){
@@ -658,7 +660,7 @@ footer{flex-direction:column;align-items:flex-start;justify-content:flex-start;p
 <section class="quote">
   <div class="quote-inner reveal">
     <span class="quote-mark">”</span>
-    <p class="quote-text">You can't stop the waves, but you can <span style="color: #c9a84c;">learn to surf.</span></p>
+    <p class="quote-text">You can't stop the waves,<br class="mob-break"> but you can <span style="color: #c9a84c;">learn to surf.</span></p>
     <cite class="quote-cite">Jon Kabat-Zinn</cite>
     <!-- wave illustration -->
     <img src="vague_blanche.svg" alt="" style="width:200px; opacity:0.75; display:block; margin:32px auto 0;">
