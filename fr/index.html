@@ -104,11 +104,10 @@ nav.scrolled{
 .lang-switch span{color:var(--silver-light);font-size:.6rem}
 .lang-switch a::after{display:none!important}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.mob-cta{display:none}
+.mob-close-btn{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:#fff;font-size:1.8rem;line-height:1;cursor:pointer;padding:.25rem .5rem;z-index:1}
 .hamburger span{display:block;width:22px;height:1.5px;background:var(--navy);transition:transform .3s,opacity .3s}
-.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-.hamburger.open span:nth-child(2){opacity:0}
-.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-.hamburger.open span{background:#ffffff}
+
 
 /* ── MOBILE MENU ── */
 .mobile-menu{
@@ -484,6 +483,7 @@ footer{background:var(--navy-deep);padding:2.2rem 5vw;display:flex;align-items:c
   nav{padding:1.1rem 1.5rem}
   .nav-links{display:none}
   .hamburger{display:flex}
+  .mob-cta{display:inline-flex}
   .trust{gap:1rem;padding:1rem 1.5rem;flex-direction:column;align-items:flex-start}
   .trust-sep{display:none}
   .trust-item{font-size:.7rem}
@@ -542,9 +542,11 @@ footer{flex-direction:column;align-items:flex-start;justify-content:flex-start;p
     <li><a href="#contact" class="nav-cta">Contact</a></li>
     <li class="lang-switch"><a href="/">EN</a><span>|</span><a href="#" class="lang-active">FR</a></li>
   </ul>
+  <a href="#contact" class="nav-cta mob-cta">Contact</a>
   <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mob">
+  <button class="mob-close-btn" onclick="closeMob()" aria-label="Close menu">&times;</button>
   <a href="#about" onclick="closeMob()" data-label="À propos">À propos</a>
   <a href="#approach" onclick="closeMob()" data-label="Mon approche">Mon approche</a>
   <a href="#process" onclick="closeMob()" data-label="Concrètement">Concrètement</a>
